@@ -68,6 +68,58 @@ Another aspect of config management is grouping. Sometimes apps batch config int
 
 In a twelve-factor app, env vars are granular controls, each fully orthogonal to other env vars. They are never grouped together as "environments", but instead are independently managed for each deploy. This is a model that scales up smoothly as the app naturally expands into more deploys over its lifetime.
 
+## IV. Backing services
+> Treat backing services as attached resources
+
+A backing service is any service the app consumes over the network as part of its normal operation. Examples include datastores(such as MySQL or CloudDB), messaging/queuing systems(such as RabbitMQ or Beanstalkd), SMTP services for outbound email(such as Postfix), and caching systems(such as Memcached).
+
+Backing services like the database are traditionally managed by the same systems administrators who deploy the app's runtime. In addition to these locally-managed services, the app may also have services provided and managed by third parties. Example include SMTP services (such as Postmark), metrics-gathering services (such as New Relic or Loggly), binary asset services(such as Amazon S3), and even API-accessible consumer services (such as Twitter, Google Map or Last.fm).
+
+**The code for a twelve-factor app makes no distinction between local and third party services**. To the app both are attached resources, accessed via a URL or other locator/credentials stored in the config. A deploy of the twelve-factor app should be able to swap out a local MySQL database with one managed by a third party(such as Amazon RDS) without any changes to the app's code. Likewise, a local SMTP server could be swapped with a third-party SMTP service(such as Postmark) without code changes. In both cases, only the resource handle in the config needs to change.
+
+Each distinct backing service is a resource. For example, a MySQL database is a resource; two MySQL databases(used for sharing at the application layer) qualify as two distinct resources. The twelve-factor app treats these databases as attached resources, which indicates their loosing coupling to the deploy they are attached to.
+![example2](assets/backing-services.png)
+
+Resources can be attached to and detached from deploys at will. For example, if the app's database is misbehaving due to a hardware issue, the app's administrator might spin up a new database server restored from recent backup. The current production database could be detached, and the new database attached - all without any code changes.
+
+## V. Build, release, run
+> Strictly separate build and run stages
+
+A codebase is transformed into a (non-development) deploy through three stages:
+
+* The _build stage_ is a transform which converts a code repo into an executable bundle known as a _build_. Using a version of the code at a commit specified by the deployment process, the build stage fetched vendors dependencies and compiles binaries and assets.
+* The _release stage_ takes the build produced by the build stage and combines it with the deploy's current config. The resulting _release_ contains both the build and the config and is ready for immediated execution in the the execution environment.
+* The _run stage_ (also known as "runtime") runs the app in the execution environment, by launching some set of the app's processes against a selected releases.
+
+![exmaple3](assets/build_release_run.png)
+
+**The twelve-factor app uses strict separation between the build, release, and run stages**. For example, it is impossible to make changes to the code at runtime, since there is no way to propagate those changes back to the build stage.
+
+Depployment tools typically offer release management tools, most notably the ability to roll back to a previous release. For example, the Capistrano deployment tool stores releases in a subdirectory names `releases`, where the current release is a symlink to the current release directory. Its `rollback` commands make it easy to quickly roll back to a previous release.
+
+Every release should have a unique release ID, such as a timestamp of the release(such as `2019-04-06-20:32:17`) or an incrementing number (such as `v100`). Releases are an append-only ledger and a release cannot be mutated once it created. Any change must create a new release.
+
+Builds are initiated by the app's developers whenever new code is deployed. Runtime execution, by constrast, can happen automatically in case such as a server reboot, or a crashed process being restarted by the process manager. Therefore, the run stage should be kept to as few  moving parts as possible, since problems that prevent an app from running can cause it to break in the middle of the night when no developers are on hand. The build stage can be more complex, since errors are always in the foreground for a developer who is driving the deploy.
+
+## VI. Processes
+> Execute the app as one or more statelss processes
+
+The app is executed in the execution environment as one or many processes.
+
+In the simplest case, the code is a stand-alone script, the execution environment is a developer's local laptop with an installed language runtime, and process is lanunched via the command line ( for example, `python my_script.py`). On othe end of the spectrum, a production deploy of a sophisticated app may use many process types, instantiated into zero or many running processes.
+
+**Twelve-factor processes are statelss ans sharing nothing**. Any data that needs to persist must be stored in a stateful backing service, typically a database.
+
+The memory space or filesystem of the process can be used as a brief, single transaction cache. For example, downloading a large file, operating on it, and storing the result of the operation in the database. The twelve-factor app never assumes that any cached in memory or on disk will be available on a future request or job - with many processes of each typr running, chances are high that a future request will be served by a different process. Even when running only one process, a restart(triggered by code deploy, config change, or the execution environemt relocating the process to a different phyiscal location) will usually wipe out all local(e.g. memory and filesystem) state.
+
+Asset packagers like django-assetpackager use the filesystem as a cache for compiled asset. A twelve-factor app prefers to do this compiliing during the build stage. Asset packagers such as Jammit and the Rails assets pipeline can be configured to package assets during the build stage.
+
+Some web systems rely on "sticky session" - that is caching user session data in memory of the app's process and expecting future requests from the same visitor to be routed to the same process. Sticky session are a violation of twelve-factor and should never be used or relied upom. session state data is a good candidate for a datastore that offer time expiration such as Memcached or Redis.
+
+
+
+
+
 
 
 
