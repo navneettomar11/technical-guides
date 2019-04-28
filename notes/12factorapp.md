@@ -116,6 +116,49 @@ Asset packagers like django-assetpackager use the filesystem as a cache for comp
 
 Some web systems rely on "sticky session" - that is caching user session data in memory of the app's process and expecting future requests from the same visitor to be routed to the same process. Sticky session are a violation of twelve-factor and should never be used or relied upom. session state data is a good candidate for a datastore that offer time expiration such as Memcached or Redis.
 
+## VII. Port binding
+> Export services via port binding
+
+Web apps are sometimes executed inside a webserver container. For example, PHP apps might run as a module inside Apache HTTPD, or Java apps might run inside Tomcat.
+
+**The twelve-factor app is completely self-contained** and does not rely on runtime injection of a webserver into the execution environment to create a web-facing service. The web app **exports HTTP as a service by binding to a port**, and listening to requests coming in on that port.
+
+In a local development environment, the developer visit a service URL like `http://localhost:5000/` to access the service exported by their app. In development, a routing layer handles routing requests from a public-facing hostname to the port-bound web processes.
+
+This is typically implemented by using dependency declaration to add a webserver library to the app, such as Tornado for Python, Thin for Ruby, or Jetty for Java and other JVM-based languages. This happen entirely in user space, that is, within the app's code. The contract with the execution environment is binding to a port to serve requests.
+
+HTTP is not only service that can be exported by port binding. Nearly any kind of server software can be run via a process binding to a port and awaiting incoming requests. Example includes ejabberd(speaking XMPP), and Redis (speaking the Redis protocol).
+
+Note also that the port binding approach means that one app can become the backing service for another app, by providing the URL to the backing app as a resource handle in the config for the consuming app.
+
+## VIII. Concurrency
+> Scale out via the process model
+
+Any computer program once run, is represented by one or more processes. Web apps have taken a variety of process-execution forms. For example, PHP processes run as child processes of Apache, started on demand as needed by request volumne. Java processes take the opposite approach, with the JVM providing one massive uberprocess that reversex a large block of system resources (CPU and memory) on startup, with concurrency managed internally via threads. In both cases, the running process(es) are minimally visible to the developers of the app.
+![concurrency](assets/concurrency.png)
+
+**In the twelve-factor app, processes are a first class citizen**. Processes in the twelve-factor app take strong cues from the unix process model for running service daemons. Using this model, the developer can architect their app to handle diverse workloads by assigning each type of work to a _process type_. For example, HTTP requests may be handled by a web process, and long-running background task handled bt a worker process.
+
+This does not exclude individual processes from handling their own internal multiplexing via threads inside the runtime VM, or the async/evented model found in tools such as EventMaching, Twisted or Node.js. But an individual VM can only grow so large (vertical scale), so the application must also be able to span multipl processes running on multiple physical machines.
+
+The process model truly shines when it come time to scale out. The share-nothing, horizontally partitionalbe nature of twelve-factor app processes means that adding more concurrency is a simple and reliable operation. The array of process types and number of processes of each type is knowns as the _process formation_.
+
+Twelve-factor app processes should never daemanize or write PID files. Instead, rely on the operating system's process manager (such as systemd, a distributed process manager on a cloud platform, or a tool like Foreman in development) to manage output streams, respond to crashed processes, and handle user-initated restarts and shutdowns.
+
+## IX. Disposability
+>Maximize robustness with fast startup and graceful shutdown
+
+**The twelve-factor app's process are disposable, meaning they can be started or stopped at a moment's notice**. This facilitates fast elastic scaling, rapid deployment of code or config changes and robustness of production deploys.
+
+Process should strive to **minimize startup time**. Ideally, a process takes a few seconds from the time the launch command is executed until the process is up and ready to receive requests or jobs. Short startup time provides more agility for the release process and scaling up; and it aids robustness, because the process manager can more easily movev processes to new physical machines when warranted.
+
+Processes **shut down gracefully when they receive a SIGTERM** signal from the process manager. For a web process, gracefut shutdown in achieved by ceasing to listen on the service port(thereby refusing any new requests), allowing any current requests to finish, and then exiting. Implicit in this model is that HTTP requests are short (no more than a few seconds), or in the case of long polling, the clinent should seamlessly attempt to reconnect when the connection is lost.
+
+For a worker process, graceful shutdown is achieved by returning the current job to the work queue. For example, on RabbitMQ the worker can send a `NACK`; on Beanstalkd the job is returned to the queue automatically whenever a worker disconnects. Lock-based systems such as Delayed Job need to be sure to release their lock on the job record. Implicit in this model is that all jobs are reentrant, which typically is achieved by wrapping the result in a transaction, or making the operation idempotent.
+
+Processes should also be **robust against sudden death**, in the case of a failure in the underlying hardware. While this is a much less common occurence than a graceful shutdown with `SIGTERM`, it can still happen, A recommended approach is use of a robust queueing backend such as Beanstalkd, that return jobs to the queue when clients, disconnect or time out. Either way, a twelve-factor app is architected to handle unexpected non-graceful terminations. Crash-only design takes this concept to its logical conclusion.
+
+
 
 
 
