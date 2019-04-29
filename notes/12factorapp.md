@@ -158,6 +158,72 @@ For a worker process, graceful shutdown is achieved by returning the current job
 
 Processes should also be **robust against sudden death**, in the case of a failure in the underlying hardware. While this is a much less common occurence than a graceful shutdown with `SIGTERM`, it can still happen, A recommended approach is use of a robust queueing backend such as Beanstalkd, that return jobs to the queue when clients, disconnect or time out. Either way, a twelve-factor app is architected to handle unexpected non-graceful terminations. Crash-only design takes this concept to its logical conclusion.
 
+## X. Dev/prod parity
+> Keep development, staging, and production as similar as possible
+
+Historically, there have been substantial gaps between development ( a developer making live edits to a local deploy of the app) and production ( a running deploy of the app accessed by end users). These gaps manifest in three areas:
+1. **The time gap**: A developer may work on code that takes days, weeks, or even months to go into production.
+2. **The personal gap**: Developers write code, ops engineer deploy it.
+3. **The tools gap**: Developers may be using a stack like Nginx, SQLite, and OS X, while the production deploy uses Apache, MySQL, and Linux.
+
+**The twelve-factor app is designed for continous deployment by keeping the gap between development and production small**. Looking at the three gaps described above:
+* Make the time gap small: a developer may write code and have it deployed hours or even just minutes later.
+* Make the personnel gap small: developers who wrote code are closely involved in deploying it and watching its behavior in production.
+* Make the tools gap small: keep development and production as similar as possible.
+
+Summarizing the above into a table:
+||Tradition app|Twelve-factor app|
+||-------------|-----------------|
+|Time between deploys| Weeks| Hours|
+|Code authors vs code deployers| Different people| Same people|
+|Dev vs production environments| Divergent| As similar as possible|
+
+Backing services, such as the app's database, queueing system, or cache, is one are where dev/prod parity is important. Many languages offer libraries which simplify access to the backing service, including adapters to different types of services. Some examples are in the table below:
+|Type|Language|Library|Adapters|
+|----|--------|-------|--------|
+|Database|Ruby/Rails|ActiveRecord|MySQL, PostgreSQL, SQLLite|
+|Queue|Python/Django|Celery|RabbitMQ, Beanstalkd, Redis|
+|Cache|Ruby/Rails|ActiveSupport::Cache|Memory, filesystem, Memcached|
+
+Developers sometimes find great appeal in using a lightweight backing service in their local environments, while a more serious and robust backing service will be used in production. For example, using SQLLite locally and PostgreSQL in production; or local process memory for caching in development and Memcached in production.
+
+**The twelve-factor developer resists the urge to use different backing services between development and production**, even what adapters theorectically abstract away difference in backing services. Differences between backing services means that tiny incompatibilities corp up, causing code that worked and passed tests in development or staging to fail in production. These types of errors create friction that disincentivizes continous deployment. The cost of this friction and subsequent dampening of continous deployment is extremely high when considered in aggregate over the lifetime of an application.
+
+Lightweight local services are less compelling than they once were. Modern backing services such as Memcached, PostgresSQL and RabbitMQ are not diffcult to install and run thanks to modern packaging system, such as Homebrew and apt-get. Alternatively declarative provisioning tools such as Chef and Puppet combined with lightweight virtual environment such as Docker and Vagrant allow developers to run local environments which closely approximate production environments. The cost of intalling and using these systems is low compared to the benefits of dev/prod parity and continous deployment.
+
+Adapters to different backing services are still useful, because they make porting to new backing services relatively painless. But all deploys of the app(developer environments, staging, production) should be using the same type and version of each of the backing services.
+
+## XI. Logs
+> Treat logs as event stream
+
+_Logs_ provide visibilty into the behavior of a running app. In server-based environments they are commonly written to a file on disk(a "logfile"); but this is only an output format.
+Logs are the stream of aggregated, time-ordered events collected from the output streams of all running processes and backing services. Logs in their raw form are typically a text format with one event per line (though backtraces from exception may span multiple lines). Logs have no fixed beginning or end, but flow continously as long as the app is operating.
+
+**A twelve-factor app never concerns itself with routing or storage of its output stream.** It should not attempt to write to or manage logfiles. Instead, each running process writes its event stream, unbuffered, to `stdout`. During local deployment, the developer will this stream in the foreground of their terminal to observe the app's behavior.
+
+In staging or production deploys, each process stream will be captured by the execution environment, collated toegether with all other streams from the app, and routed to one or more final destinations for viewing and long-term archival. These archival destinations are not visible to or configurable by the app, and instead are completely managed by the execution environment. Open source log routers (such as Logplex and Fluentd) are avaiable for this purpose.
+
+The event stream for an app can be routed to a file, or watched via realtime tail in a terminal. Most significantly, the stream can be sent to a log indexing and analysis system such as Splunl, or general-purpose data warehousing system such as Hadoop/Hive. These systems allow for great power and flexibility for introspecting an app's behavior over time, including:
+* Finding specific event in the past.
+* Large-sclae graphing of trends(such as request per minute).
+* Active alerting according to user-defined heuristics(such as an alert when the quantity of errors per minute certain threshold).
+
+## XII. Admin Processes
+>Run admin/managment tasks as one-off processes
+
+The process formation is the array of processes that are used to do the app's regular business(such as handling web requests) as it runs. Separately, developers will often wish to do one-off administrative or maintenance tasks for the app, such as:
+* Running database migrations (e.g. `manage.py migrate` in Django, `rakedb:migrate` in Rails).
+* Running a console(also known as a REPL shell) to run arbitrary code or inspect the app's models against the live database. Most languages provide a REPL by running the interpreter without any arguments(e.g. `pyrhon` or `perl`) or in some case have a separate command (e.g. `irb` for Ruby, `rail console` for Rails).
+* Running one-time scripts commited into the app's repo (e.g. `php scripts/fix_bad_records.php`).
+
+One-off admin processes should e run in an identical environment as the regular long-running processes of the app. They run against a release using the same codebase and config as any process run against that release. Admin code must ship with application code to avoid synchronization issues.
+
+The same dependency isolation techniques should be used on all process types. For example, if the Ruby web process uses the command `bundle exec thin start`, then a database migration should use `bundle exec rake db:migrate`. Likewise, a Python program using Virtualenv should use the vendored `bin/pyhton` for running both the Tornado webserver and any `manage.py` admin processes.
+
+Twelve-factor strongly favors languages which provide a REPL shell out of the box, and which make it easy to run one-off scripts. In a local deploy, developers invoke one-off amdin processes by direct shell command inside that app's checkout directory. In production deploy, developers can use ssh or other remote command execution mechansim provided by that deploy's execution environment to run such a process.
+
+
+
 
 
 
