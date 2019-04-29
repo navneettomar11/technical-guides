@@ -172,6 +172,7 @@ Historically, there have been substantial gaps between development ( a developer
 * Make the tools gap small: keep development and production as similar as possible.
 
 Summarizing the above into a table:
+
 | |Tradition app|Twelve-factor app|
 |-|-------------|-----------------|
 |Time between deploys| Weeks| Hours|
@@ -179,6 +180,7 @@ Summarizing the above into a table:
 |Dev vs production environments| Divergent| As similar as possible|
 
 Backing services, such as the app's database, queueing system, or cache, is one are where dev/prod parity is important. Many languages offer libraries which simplify access to the backing service, including adapters to different types of services. Some examples are in the table below:
+
 |Type|Language|Library|Adapters|
 |----|--------|-------|--------|
 |Database|Ruby/Rails|ActiveRecord|MySQL, PostgreSQL, SQLLite|
