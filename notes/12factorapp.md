@@ -172,8 +172,8 @@ Historically, there have been substantial gaps between development ( a developer
 * Make the tools gap small: keep development and production as similar as possible.
 
 Summarizing the above into a table:
-||Tradition app|Twelve-factor app|
-||-------------|-----------------|
+| |Tradition app|Twelve-factor app|
+|-|-------------|-----------------|
 |Time between deploys| Weeks| Hours|
 |Code authors vs code deployers| Different people| Same people|
 |Dev vs production environments| Divergent| As similar as possible|
