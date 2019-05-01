@@ -189,3 +189,34 @@ This is what themes look lin Portfolio for JIRA:
 
 ### Structuring your work:
 Beign agile and embracing structure are not mutually exclusive, and the structure laid out here is not one size filts all. Success is when you and your team understand these concepts and adapt them to you nedds. For us, that stories, epics, initiatives, and themes.
+
+## Agile Epics: Definition, Examples, & Templates
+> An epic is a large body of work that can be broken down into a number of smaller stories.
+
+An agile epic is a body of work that can be broken down into specific tasks (called "stories" , or "user stories") based on the needs/requests of customer or end users.
+
+Epic are a helpful way to organize you work and to create a hierarchy. The idea is to break work down into shippable pieces, so that large project can actually get done and you can continue to ship value to your customers on a regular basis. Epics help teams break their work towards a bigger goal.
+
+Maintaining agility when organizing large tasks, like epics, is no small task(pun intended). Learning how epic relate to a healthy agile program is an essential skill no matter the size of your organization.
+
+### What is an Agile Epic?
+An epic is a large body of work that can be broken down into a number of smaller stories, or sometimes called "Issues". Epics often encompass multiple teams, on multiple projects, and can even be tracked on multiple boards.
+
+Epics are almost always delivered over a set of sprints. As a team learns more about an epic through development and customer feedback, user stories will be added and removed as necessary. That's the key with agile epics: Scope is flexible, based on customer feedback and team cadence.
+
+### Agile Epic Example
+Let's say it's 2050 and we work for a recreational space-travel orgaization. We do about a dozen launches a year, so each launch isn't the single biggest thing we do in a year, but it's still far from routine and will take many person-hours to complete. That sizing is just right for an epic.
+
+An example epic "March 2050 Space Tourism Launch" includes stories for routine work items as well as stories for routing work items as well as stories aimed to improve keys apsects of the shuttle launch, from customers buying space travel tickets to the launch of the rocket itself. As such, multiple teams will contribute to this epic by working on a wide range of stories.
+
+The software team supporting purchasing of tickets for March 2050 launch might structure their epic as so:
+
+|<td colspan=3>**Epic : March 2050 Launch**</td>|
+|-----------|------------|------------|
+|Story:update date range to include March 2050 Launch dates.| Story: Reduce load times for requested flight listing to < 0.45 seconds| Story: Promote saturn summer sale on confirm page for First class bookings|
+
+Concurrently, the propulsion teams might contribute to same epic with these stories
+
+|<td colspan=3>**Epic : March 2050 Launch**</td>|
+|-----------|------------|------------|
+|Story:keep fuel tanks PSI > 250 on launch | Story: Reduce overall fuel consumption by 1%| Story: Hire new propulsion engineer to replace Gary #garygate 2050|
