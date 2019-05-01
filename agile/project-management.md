@@ -211,12 +211,22 @@ An example epic "March 2050 Space Tourism Launch" includes stories for routine w
 
 The software team supporting purchasing of tickets for March 2050 launch might structure their epic as so:
 
-|<td colspan=3>**Epic : March 2050 Launch**</td>|
-|-----------|------------|------------|
-|Story:update date range to include March 2050 Launch dates.| Story: Reduce load times for requested flight listing to < 0.45 seconds| Story: Promote saturn summer sale on confirm page for First class bookings|
+<table>
+<tr><td colspan=3>**Epic : March 2050 Launch**</td></tr>
+<tr>
+	<td>Story:update date range to include March 2050 Launch dates.</td>
+	<td>Story: Reduce load times for requested flight listing to < 0.45 seconds</td>
+	<td>Story: Promote saturn summer sale on confirm page for First class bookings</td>
+</tr>
+</table>	
 
 Concurrently, the propulsion teams might contribute to same epic with these stories
 
-|<td colspan=3>**Epic : March 2050 Launch**</td>|
-|-----------|------------|------------|
-|Story:keep fuel tanks PSI > 250 on launch | Story: Reduce overall fuel consumption by 1%| Story: Hire new propulsion engineer to replace Gary #garygate 2050|
+<table>
+<tr><td colspan=3>**Epic : March 2050 Launch**</td></tr>
+<tr>
+	<td>Story:keep fuel tanks PSI > 250 on launch</td>
+	<td>Story: Reduce overall fuel consumption by 1%|</td>
+	<td>Story: Hire new propulsion engineer to replace Gary #garygate 2050</td>
+</tr>
+</table>	
