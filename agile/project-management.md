@@ -94,8 +94,11 @@ Every software team has a process they use to complete work. Normalizing that pr
 ### Start simple, start now
 When implementing a workflow for the team, always start simple. Fight the temptation to spend weeks(over-) engineering it. Overly complex workflow are hard to understand and adopt-not to mention adapt. For software teams, we recommend these basic workflow states:
 > TO DO -  Work that has not been started
+
 > IN PROGRESS - Work that is actively being looked at by the team 
+
 > CODE REVIEW - Work that is completed, but awaiting review.
+
 > DONE - Work that is completely finished and meets the team's definition of done.
 
 In an issue tracker, these statuses flow from one to the next using transitions which structure the workflow.
@@ -104,6 +107,7 @@ In an issue tracker, these statuses flow from one to the next using transitions 
 Some software teams include additional states in their workflow that help them track the status of work more precisely.
 
 > AWAITING_QA - Work that has been implemented, but is still waiting for a tester review.
+
 > READY TO MERGE - Code that has been reviewed and is ready to merge into master or relase branch
 
 Each state in the workflow doesn't need to be handled by different person. As an agile team matures developers handle more and more of the work-from design all the way through to delivery. An autonomous team that can handle heterogeneous work is one of the hallmarks of agilitiy, after all
