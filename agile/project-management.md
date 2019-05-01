@@ -137,3 +137,55 @@ Agile teams that work together can benefit from sharing the same workflow. Using
 
 No matter what your workflow look like, the process of developing it should be agile too, Discuss it in retrospectives from time to time, and adapt it as the team's culture and composition changes.
 
+## Epics, Stories, Themes, and Initiatives
+> These simple structure help agile team gracefully manage scope and structure work.
+
+Let's say you and your team want to do something ambitious, like launch a rocket into space. To do so, you will need to structure your work: from the largest objectives down to the minute details. You'll want to be able to respond to change, report your progress, and stick to a plan. Epics, stories, themes and initiatives are precisely the tools you'll need to do so.
+
+By understanding how these popular agile methodologies help organize work, you team can strike a healthy balance between structure, flexibility, and launching rocket into space.
+
+### What are stories, epics, initiatives, and themes?
+- **Stories**, also called "user stories", are short requirment or request written from the perpestive of an end user.
+- **Epics** are large bodies of work that can be broken down into a number of small tasks ( called stories).
+- **Initiatives** are collection of epics that drive toward a common goal
+- **Themes** are large focus areas that span the organization.
+
+![Stories_Epics_Initiatives_Themes](assets/stories_epics_initiatives_themes.png)
+
+### Agile Epic Vs Story
+In a sense, stories and epics in agile are similar to stories and epics in film or literature. Ap story is one simple narrative; s series of releated and interdependent stories makes up and epic. The same is true for your work managment, where the completion of releated stories leads to the completion of an epic. The stories tell the arc of the work completed which the epic shares a high-level view of the unifying objective.
+
+On an agile team, stories are something the team can commit to finish withing a one or two-week spring. Oftentimes, developers would work on dozens of stories a month. Epics, in constrast, are few in number and take longer to complete. Teams often have two or three epics they work to complete each quarter.
+
+If your company was launching rockets into space, and wanted to improve the streaming service for your launches, you might structure your stories like the ones below.
+
+#### Examples of an agile story:
+- iphones users need access to a vertical view of the live feed when using the mobile app.
+- Desktop users need a "view fullscreen" button in the lower right hand corner of the video player.
+- Android users need to be linked ot apple store.
+
+The above stories are all releated and could all considered individual tasks that drive toward the completion of the larger body work (an epic). In this case, the epic might be **"Improve Streaming Service for Q1 Launch."**
+
+Organizing work into stories and epics also helps you and your team communicate effectively withing the organization. If you were reporting your team progress to the Head Enginerring, you'd be speaking in epics. If you were talking to a colleagure on your development team, you'd speak at the story level.
+
+### Agile Epic vs Initiative
+In the same way that epics are made up of stories, initiatives are made up of epics. Initiatives offer another level of organization above epics. In many cases, an initiative compiles epics from multiple teams to achieve a much broader, bigger goal than any of the epics themseleves. While an epic is something you might to complete in a month or a quarter, initiatives are often completed in multiple quarters to a year.
+ 
+![epics-vs-stories](assets/epics-vs-stories-agile-development.png)
+
+**Example of epic in an initiative:**
+Let's say your rocket ship company wants to decrease the cost per launch by 5% this year. THat's a great fit for an ititative, as no single epic could likely achieve that big of a goal. Within that initiative there would be epics such as, "Decrease launch-pase fuel consumption by 1%", "Increase launches per quarter from 3 to 4", and "Turn all thermostats down from 71 to 69 degrees #Dadmode".
+
+### Initiatives vs Themes
+In many organziations the founders and management team will encourage the pursuit of some aspirational destination. These are the (sometimes super corny) goals announced each year or quarter, and themes are how you keep track of them.
+- Initiatives are collections of epics.
+- Themes are labels that track high-level organization goals.
+
+Initiatives have a structural design. THe house epics, and the completion of those epics will lead to the completion of the initiative. Themes are an organizational tool that allows you to label backlog items, epics, and initiatives to understand what work contributes to what organizational goals. Themses should inspire the creation of epic and initiative but doesn't ha e a ridgit 1-to-1 releationship with them. A theme for a rocket ship company would be something like "Safety First". 
+
+This is what themes look lin Portfolio for JIRA:
+
+![themes_look_in_jira](assets/themes_look_in_jira)
+
+### Structuring your work:
+Beign agile and embracing structure are not mutually exclusive, and the structure laid out here is not one size filts all. Success is when you and your team understand these concepts and adapt them to you nedds. For us, that stories, epics, initiatives, and themes.
