@@ -185,7 +185,7 @@ Initiatives have a structural design. THe house epics, and the completion of tho
 
 This is what themes look lin Portfolio for JIRA:
 
-![themes_look_in_jira](assets/themes_look_in_jira)
+![themes_look_in_jira](assets/themes_look_in_jira.png)
 
 ### Structuring your work:
 Beign agile and embracing structure are not mutually exclusive, and the structure laid out here is not one size filts all. Success is when you and your team understand these concepts and adapt them to you nedds. For us, that stories, epics, initiatives, and themes.
