@@ -1,4 +1,4 @@
-#Project Management 
+# Agile Project Management 
 
 ## What is agile project management?
 Agile project management is an  iterative approach to managing software development projects that focus on continous releases and incorporating customer feedback with every iteration.
@@ -88,3 +88,48 @@ An agile program cannot function without a high level of trust amongst team memb
 
 ## Wordflow
 >Everyone hate "process", but let's face it: without an established workflow, you're going nowhere fast.
+
+Every software team has a process they use to complete work. Normalizing that process-i.e., establishing it as a workflow - makes it clearly structured and repeatable, which, in turn makes it scalable. 
+
+### Start simple, start now
+When implementing a workflow for the team, always start simple. Fight the temptation to spend weeks(over-) engineering it. Overly complex workflow are hard to understand and adopt-not to mention adapt. For software teams, we recommend these basic workflow states:
+> TO DO -  Work that has not been started
+> IN PROGRESS - Work that is actively being looked at by the team 
+> CODE REVIEW - Work that is completed, but awaiting review.
+> DONE - Work that is completely finished and meets the team's definition of done.
+
+In an issue tracker, these statuses flow from one to the next using transitions which structure the workflow.
+![agile workflow](assets/AgileWorkflow.svg)
+
+Some software teams include additional states in their workflow that help them track the status of work more precisely.
+
+> AWAITING_QA - Work that has been implemented, but is still waiting for a tester review.
+> READY TO MERGE - Code that has been reviewed and is ready to merge into master or relase branch
+
+Each state in the workflow doesn't need to be handled by different person. As an agile team matures developers handle more and more of the work-from design all the way through to delivery. An autonomous team that can handle heterogeneous work is one of the hallmarks of agilitiy, after all
+> Healthy workflows adapt to the needs of the team. Osscasional pain is normal. Chronic pain is not.
+
+Discuss each pain point in the team retrospective, and keep in mind that each team will have slightly different values based on their project, technology stack, and method in which they like to work. That's why it's important to choose an issue tracker that has a flexible workflow configuration. Too many teams compromise their work style to fit a particular toolset, which is frustrating for everyone. So team member start to avoid using that tool altogether, compunding frustration across the team and generally wreaking havoc. And when morale falls, productivity suffers. That's a double whammy we all want to avoid!
+
+Team that are new to agile or that don't have cross-functional skills often end up with "mini waterfalls" in their workflow. For example design kicks off a work item with a mockup. Development does the implementation. Test confirms quality. Each state is blocked until the former state is complete. Sound familiar? That's waterfall. But we can do much better with agile workflows to unblock the team and make development easier.
+
+### Optimize the workflow
+When you're comforatable with the basic workflow and are ready to customize it, create statues for each type of work in a team's process. Ideation, design, development, code review, and test are functionality different and can be individual statuses that still clearly communicate what phase a piece of work is in.
+
+Project statuses can also be shared with the rest of the organization. When building a workflow, think about which metrics are important to report on and what non-team members might be interested in learning. For example, a well designed workflow answers the following questions:
+- What work has the team completed ?
+- Is the backlog of work increasing or keeping pace with the team ?
+- How many items are in each status ?
+- Are there any bottleneck that are slowing the team down?
+- How long does it take to complete an averabe task?
+- How many work items didn't pass our quality standards the first time around?
+
+The next step is optimizing the workflow is to ensure a steady stream of work through the workflow. Work-in-progress(WIP) limits dictate a minimum number of issues in a particular state of the workflow has enough work to keep the team fully utilized, but not so much that they lose focus because they're juggling priorities. Enforcing work-in-progress limit will quickly show which processes in the team are slowing down the overall work through the pipeline. As the team leants to optimize around its work-in-progress limits, throughput will increase.
+
+### The challenges of scaling a workflow
+Organizations that have several agile teams face special challenges with workflows. Team often want to optimize their own worflow to reflect their unique process and culture. Prefectly understandable. But it can create headaches when diffetent teams use different processes but work on the same project.
+
+Agile teams that work together can benefit from sharing the same workflow. Using the same workflow can make transitioning work between agile team easier, because they use the same conventions for defining and delivering work. Creating a common process usually involves some give and take from both teams. That's good! They'll learn from one another and come out with a better workflow in the end.
+
+No matter what your workflow look like, the process of developing it should be agile too, Discuss it in retrospectives from time to time, and adapt it as the team's culture and composition changes.
+
