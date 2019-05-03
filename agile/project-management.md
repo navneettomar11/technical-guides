@@ -212,7 +212,7 @@ An example epic "March 2050 Space Tourism Launch" includes stories for routine w
 The software team supporting purchasing of tickets for March 2050 launch might structure their epic as so:
 
 <table>
-<tr><td colspan=3>**Epic : March 2050 Launch**</td></tr>
+<tr><td colspan=3><strong>Epic : March 2050 Launch</strong></td></tr>
 <tr>
 	<td>Story:update date range to include March 2050 Launch dates.</td>
 	<td>Story: Reduce load times for requested flight listing to < 0.45 seconds</td>
@@ -223,10 +223,57 @@ The software team supporting purchasing of tickets for March 2050 launch might s
 Concurrently, the propulsion teams might contribute to same epic with these stories
 
 <table>
-<tr><td colspan=3>**Epic : March 2050 Launch**</td></tr>
+<tr><td colspan=3><strong>Epic : March 2050 Launch</strong></td></tr>
 <tr>
 	<td>Story:keep fuel tanks PSI > 250 on launch</td>
-	<td>Story: Reduce overall fuel consumption by 1%|</td>
+	<td>Story: Reduce overall fuel consumption by 1%</td>
 	<td>Story: Hire new propulsion engineer to replace Gary #garygate 2050</td>
 </tr>
 </table>	
+
+### Understaning Epics within a Complete Agile program
+An epic should give the development team everything they need ti be successful. From a pratical perspective, it's the top tier of their work hierarchy. However, understanding how an epic relates to other agile structures provides important context for the daily dev work.
+- A product roadmap is a plan of action for how a product or solution will evolve over time.
+- A **theme** is an organization goal that drive the creation of epics and initiatives
+- The product roadmap is expressed and visualized as a set of initiatives plotted along a timeline.
+- Breaking initiatives into epics helps keep the team's daily work - expressed in smaller stories - connected to overall business goals.
+
+A set of completed epics drives a specific initiative, which keeps the overall product developing and evoling with market and customer demands on top of organizational themes.
+
+From our example above, a theme would be increasing space shuttle launches, the roadmap would track towards increasing launches from 3 per quarter to 4, the initiatives would be to drive down costs and increase ticket sales, and each epic would roll up into the initiatives.
+
+![theme_agile_epic](assets/themes_agile_epic.png)
+
+### Creating an Agile Epic
+When creating a new epic consider other planning and organization tools you team may already have in place. Creating epics around a team's quarterly goals or OKRs(Objectives and Key Results) is a great start. When creating an epic consider the following:
+- **Reporting** - Create epic for the project that managers and executives will want to keep an eye on.
+- **Storytelling** - Using epics, and the stories that roll up into them, as a mechanism to tell the story of how you arrived at the current state of a feature or product.
+- **Culture** - Let organizational culture dicate the size and granularity of an epic.
+- **Time** - Most development teams rely on estimation frameworks instead of time, but it's a worthwhile gut check to make sure your epics will take a couple weeks to complete. Not too long and not too short.
+
+### Break down an Agile Epic
+Breaking down an epic into more pratical stories helps in understanding a project and maintaining momentum, but it can be a daunting task for the uninitiated. There is no one-size-fits all solution for creating stories from an epic, but there are a lot of good options to consider:
+- **User role or persona** - Create a unique story for each user persona. "Quicker login for new visitors", "quicker login for return customers", etc.
+- **Ordered steps** - Break down the process and create a story for each step.
+- **Culture** - Let team norms dictate if a story is a quick task or a week-long project.
+- **Time** - Barring another agreed upon convention, design stories that can be completed in one print or less.
+
+Theere is no universal definition that draws a line between a big story and an epic. In general, any scope of work that the team estimates at "weeks" (or longer) to complete rather than "hours" or "days" should be considered an epic and broken down into smaller stories.
+
+### Measuring Agile Epic
+Burndown charts can be used to visualize epics, and serve to keep teams motivated and the executive stakeholders informed. A good epic burndown chart is where the agility of the organization really shines.
+
+An epic burndown chart shows the actual and estimated amount of work to be done in a sprint or epic. The horizontal x-axis in a Burndown Chart indicates time, and the vertical y-axis indicates stories or issues.
+
+![Epic burndown chart](assets/EpicBurndownChart.svg)
+
+Use Burndown chart to track the total work remaining and to project the likelihood of achieving the sprint goal. By tracking the remaining work throughout the iteration, a team can manage its progress and respond accordingly. 
+
+By monitoring a Burndown Chart, it becomes clear how the team is progressing and where the blockers are. Having these data points clearly visible keeps everyone on the same page and facilitates open conversation about the evolution of the product and completion forecasts. Not to mention that transparency builds trust!
+
+### Understing Agile Epics
+Epics are not the absolute foundation of an agile program, but they are the practical drivers for most agile teams. Understanding where they fit into a healthy agile program creates context for your work, breaking them down into stories create momentum.
+
+
+
+
