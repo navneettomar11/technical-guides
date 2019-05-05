@@ -343,6 +343,46 @@ User stories describe the why and the what behind the day-to-day work of develop
 
 Start by evaluating the next or most pressing, large project(e.g. an epic). Break it down into smaller user stories, and work with the development team for refinement. Once your stories are out in the wild where the whole team can see them, you're ready to get to work.
 
+## Estimation
+> Good estimation helps product owner optimize for efficiency and impact. That's why it's so important
+
+Estimation is hard. For software developers, it's among the most diffcult-if not the most diffcult-aspects of the job. It must take into accont of slew of factors that help product owners make decisions that affect the entire team-and the business. With all that at stake, it's no wonder everyone from developers to upper management is prone to getting their undies in a bunch about it. But that's a  mistake. Agile estimation is just that: an estimate. Not a blood-oath.
+
+There's no requirment to work weekends in order to compensate for under-estimating a piece of work. That said, let's look at some ways to make agile estimates as accurate as possible.
+
+### Collaborating with the product owner
+In agile development, the product owner is tasked with prioritizing the backlog-the ordered list of work that contains short descriptions of all desired features and fixes for a product. Product owners capture requirments from the business, but they don't always understand the details of implementation. So good estimation can give the product owner new insight into the level of effort for each work item, which then feeds back into their assessment of each item's releative priority.
+
+When the engineering team begins its estimation process, questions usually arise about requirements and user stories. And that's good those questions help the entire team understand the work more fully. For product owners specifically, breaking down work items into granular pieces and estimates via story points helps estimates via story points helps them prioritize all(and potentially hidden!) areas of work. And once they have estimates from the dev team, it's not uncommon for a product owner to reorder items on the backlog.
+
+### Agile estimation is a team sport
+Involivng everyone (developers, designers, testers, deployers... everyone) on the team is key. Each team member bring a different perspective on the product and work required to deliver a user story. For example, if product management want to do something that seems simple, like support a new web browser development and QA need to weigh in because their experience has taught them what dragons may be lurking beneath the surface.
+
+Likewise, design changes require not only the design team's input but that of development and QA as well. Leaving part of the broader product team out of the estimation process creatres lower quality estimates, lowers morable because key contributors don't feel included, and compromises the quality of the software.
+
+So don't let your team fall victim to estimates made in a vacuum. It's a fast track to failure!
+
+### Story points vs hours
+Traditional software team give estimates in a time format: days, weeks, months. Manay agile teams, howeaver, have transitional to story points. Story points rate the releative effort of work in a Fibonacci-like format 0, 0.5, 1, 2, 3, 5,8,13,20,40,100. It may sound counter-intuituve, but that abstraction is actually helpful because it pushes the team to make tougher decisions around the diffculuty to work. Here are few reasons to use story points:
+- Dates don't account for the non-project releated work that inevitably creeps into our days: emails, meetings, and interviews that a team member may be involved in.
+- Dates have an emotional attachment to them. Relative estimation removes the emotional attachement.
+- Each team will estimate work on a slightly different scale, which means their velocity(measured in points) will naturally be different. This, in turn, makes it impossible to play politics using velocity as a weapon.
+- Once you agree on the releative effort of each story point value, you can assign points quickly without much debate.
+- Story points reward team members for solving problems based on diffculity, not time spent. This keeps team members focused on shipping value, not spending time.
+
+### Story points and planning poker
+Teams starting out with story points use an excercise called planning poker. The team will take an item from backlog, discuss it briefly, and each member will mentally formulate an estimate. Then everyone holds up a card with the number that reflects their estimate. If everyone is in agreement, great! If not, take some time(but not too much time-just couple minutes) to understand rationale behind different estimates. Remember though estimation should be high level activity. If the team is too far into the weeds, take a breath, and uplevel the dicussion.
+
+### Estimate smarter, not harder
+No individual task should be more than 16 hours of work. (If you're using story points, you may decide that say, 20 point is the upper limit). It's simply too hard to estimate individual work items larger than that with a high degree of confidence. And that confidence is especially important for items at the top of the backlog. When something is estimated above your team's 16-hour (or 20-point) threashold, that a signal to break it down into more granular pieces and re-estimate.
+
+For items deeper in the backlog, give a rough estimate. By the time the team actually beigns to work on those items, the requirements may chage, and your application certainly will have changed. So prior estimates won't be as accurate. Don't waste time estimating work that is likely to shift. Just give the product owner a ballpark figure he/she can use to prioritize the product owner roadmap appropriately.
+
+### Learn from past estimates
+Retrospectives are a time for the team to incorporate insights form past iteration - including the accuracy of their estimates. Many agile tools (like Jira Software) track story points, which makes reflecting on and re-calibrating estimates a lot easier. Try, for examplr, pulling up the last 5 user stories the team delivered with story point value 8. Dicuss whether each of those work items had a similar level of effort If not, discuss why. Use that insight in future estimation discussions.
+
+Like everthing else in agile estimation is a pratice. You'll get better and better with time.
+
 
 
 
