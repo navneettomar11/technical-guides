@@ -444,6 +444,7 @@ When velocity is erratic over a long period of time, always revisit the team est
 - As a team, are we overzealous in forecasting for the sprint?
 
 Each team's velocity is unique. If team A has a velocity of 50 and team B has a velocity of 75, it doesn't mean that team B has higher throughput. Since each team's estimation culture is unique, their velocity will be as well. Resist the temptation to compare velocity across teams. Measure the level of effort and output of work based on each team's unique interpretation of story points.
+
 ---
 
 #### Control Chart
