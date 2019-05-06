@@ -413,6 +413,7 @@ A team that consistently meets its forecast is a compelling advertistment for ag
 - The team misses their forecast sprint after sprint because they're committing to too much work.
 - The burndown line makes steep drops rather than a more gradual burndown because the work hasn't been broken down into granular.
 - The product owner adds or changes the scope mid-sprint.
+---
 
 #### Epic and release burndown
 Epic and release burndown charts track the progress of development over a large body of work than the sprint burndown, and guide development for both scrum and kanban teams. Since sprint(for scrum teams) may contain work for several epics and versions, it's important to track both the progress of individual sprints as well as epics and versions.
@@ -426,6 +427,7 @@ Epic and release burndown charts track the progress of development over a large 
 - Chronic scope creep, which may be a sign that the product owner doesn't fully understand the problem that body of work is trying to solve.
 - Scope grows faster than the team can absorb it.
 - The team isn't shipping incremental releases throughout the development of an epic.
+---
 
 #### Velocity
 Velocity is the average amount of work a scrum team completes during a sprint, measured in either story points or hours, and is very owner can use velocity to predict how quickly a team can work through the backlog, because the report tracks the forecasted and completed work over several iterations-the more iterations, the more accurate the forecast.
@@ -442,6 +444,7 @@ When velocity is erratic over a long period of time, always revisit the team est
 - As a team, are we overzealous in forecasting for the sprint?
 
 Each team's velocity is unique. If team A has a velocity of 50 and team B has a velocity of 75, it doesn't mean that team B has higher throughput. Since each team's estimation culture is unique, their velocity will be as well. Resist the temptation to compare velocity across teams. Measure the level of effort and output of work based on each team's unique interpretation of story points.
+---
 
 #### Control Chart
 Control charts focus on the cycle time of individual issues - the total time from "in progress" to "done". Teams with shorter cycle times are likely to have higher throughput, and teams with consistent cycle time across many issues are more predictable in delivering work. While cycle time is primary metric for kanban teams, scrum teams can benefit from optimized cycle time as well.
@@ -453,6 +456,7 @@ Measuring cycle time is an efficient and flexible way to improve a team's proces
 Control charts can appear fickle at first. Don't be so connected with every outlier. Look for trends. Here are two areas to watch out for:
 - Increasing cycle time - Increasing cycle time saps the teams of it's hard earned agility. In the team's retrospective take time to understand an increase. One exception: if the team's definition of done has expanded, cycle time will probably expand too.
 - Erratic cycle time - The goal is to have consistent cycle time for work items which have similar story point values. Filter the control chart for each story point value to check for consistency. If cycle time is erratic on small and large story point values, spend time in the retrospective examining the misses and improving future estimation.
+---
 
 #### Cumulative flow diagram
 The cumulative flow diagram is a key resource for kanban teams, helping them ensure the flow of work across the team is consistent. With number of issues on the Y axis, time on X axis, and color to indicate various workflow states, it visually points out shortages and bottlenecks and works in conjunction with WIP limits.
