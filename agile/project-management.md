@@ -483,6 +483,40 @@ Agile teams should also look at release frequency and delivery speed. At the end
 
 Metrics are just one part in building a team's culture. They give quantitative insight into the teams's performance and provide measureable goals for the team. While they're important don't get obsessed. Listening to the team's feedback during retrospectives is equally important in growing trust across the team, quality in the product, and development speed through the release process. Use both the quantitative and qualitative feedback to drive change. 
 
+# Advantage
+
+## Why go agile?
+Ask any developer about their transition from waterfall to agile and you'll get an earful about the many benefits of "going agile." For stackholders outside of the development organization, these advantages are not so readily apparent. This section serves to help business leaders understand the value of agile and align their business goals with development practices remain as relevant as ever and the business that embrace agile continue to lead the pack. 
+
+## Connect business strategy to development reality
+> Efficiency is doing things right. Effectiveness is doing the right things." - Peter Drucker
+
+A well-tuned agile process at the team level is the foundation for efficient agile software development. Yet, to be effective and achieve desired market and business goals, it's essential to get a team's dialy work in tune with an organization's strategic objectives.
+
+### Connecting business goals to agile development
+The key to aligning business strategy with what's happening on the front lines of development is to clearly defines themes, goals, and metrics.
+- **Themes** are large area of related work, defined over a period of time and focused on a particular outcome. For example, a theme could be streamlining a shopping cart flow over the next two quarters. Themes are an important frame of reference for teams. They serve as a check on whether their work is contributing to the progress of business initiatives. Managing work by theme also helps management understand whether sufficient resources are allocated for success, or if themes are underfunded.
+- **Goals and metrics** defined a desired, concreate  and measurable future state. In agile portfolio management, global goals give context to themes and can be broken up into subgoals to drive measurable actions on all levels of the organization. For example, a 20% reduction in abandoned shopping carts.
+> TIPS FOR EFFECTIVE THEMES, GOAL, AND METRICS
+> - Focus on just a few clearly defined themes. Less is more. (Five or fewer is ideal.)
+> - Ensure everyone in the organization can name the current core themes
+> - Set one primary goal per theme and measure that goal by one key metric
+> - Tailor company-wide goals for each level of the organization to support the company strategy.
+> - Make goals, aggressivr, but achievable
+
+Once top-level themes, goals, and metrics are defined, department and teams can derive their particular subgoals - and eventually, their key initiatives-from the themes. Subgoals and key intiatives help define product features and/or projects. As a result, each software team should understand how every single task contributes to goal and themes. In other word, why it matters for overall strategy.
+
+The above framework serves two purposes:
+- It focus time on what matter most, and avoids wasted resources on non-goals.
+- It provide the context individual team members need to make the right decisions each day.
+
+An organization can't achieve its goals without bundling and focusing its resources. Plus, regardless of type of work, individuals make countless trade-off decisions every day in how tasks are done. Ultimately, managers cannot and should not get involved with these micro-level decisions. Management can only provide the right information and environment to empower individuals to act in the best interests of global goals.
+
+> PRO TIP:
+> There are many different frameworks using different terminologies for similar purposes. OKRs(objectibe and key results) are an example of a popular and widespread framework. Practically speaking, we belive that efficient execution matter more than framework or terminology, and don't favor one over another.
+
+### Takeways and next steps
+
 
 
 
