@@ -497,12 +497,12 @@ A well-tuned agile process at the team level is the foundation for efficient agi
 The key to aligning business strategy with what's happening on the front lines of development is to clearly defines themes, goals, and metrics.
 - **Themes** are large area of related work, defined over a period of time and focused on a particular outcome. For example, a theme could be streamlining a shopping cart flow over the next two quarters. Themes are an important frame of reference for teams. They serve as a check on whether their work is contributing to the progress of business initiatives. Managing work by theme also helps management understand whether sufficient resources are allocated for success, or if themes are underfunded.
 - **Goals and metrics** defined a desired, concreate  and measurable future state. In agile portfolio management, global goals give context to themes and can be broken up into subgoals to drive measurable actions on all levels of the organization. For example, a 20% reduction in abandoned shopping carts.
-> TIPS FOR EFFECTIVE THEMES, GOAL, AND METRICS
+> **TIPS FOR EFFECTIVE THEMES, GOAL, AND METRICS**
 > - Focus on just a few clearly defined themes. Less is more. (Five or fewer is ideal.)
 > - Ensure everyone in the organization can name the current core themes
 > - Set one primary goal per theme and measure that goal by one key metric
 > - Tailor company-wide goals for each level of the organization to support the company strategy.
-> - Make goals, aggressivr, but achievable
+> - Make goals, aggressive, but achievable
 
 Once top-level themes, goals, and metrics are defined, department and teams can derive their particular subgoals - and eventually, their key initiatives-from the themes. Subgoals and key intiatives help define product features and/or projects. As a result, each software team should understand how every single task contributes to goal and themes. In other word, why it matters for overall strategy.
 
@@ -513,13 +513,21 @@ The above framework serves two purposes:
 An organization can't achieve its goals without bundling and focusing its resources. Plus, regardless of type of work, individuals make countless trade-off decisions every day in how tasks are done. Ultimately, managers cannot and should not get involved with these micro-level decisions. Management can only provide the right information and environment to empower individuals to act in the best interests of global goals.
 
 > PRO TIP:
-> There are many different frameworks using different terminologies for similar purposes. OKRs(objectibe and key results) are an example of a popular and widespread framework. Practically speaking, we belive that efficient execution matter more than framework or terminology, and don't favor one over another.
+> There are many different frameworks using different terminologies for similar purposes. OKRs(objective and key results) are an example of a popular and widespread framework. Practically speaking, we belive that efficient execution matter more than framework or terminology, and don't favor one over another.
 
 ### Takeways and next steps
+Connecting day-to-day development with business strategy is a two-way process. Looking top-down, it's essential to set boundaries and focus areas for teams to work in ("framing the sandbox", if you will). These focus areas are derived directly from the business plan and overarching corporate strategy. For each focus area there should be clearly defined, measurable end goal. From the bottom-up, make sure everyone knows which themes and goals every task contributes to. Raise concerns if this unclear, as it indicates either misalignment on the goals, or lack of focus.
 
+The roadmap is a good place to start, especially if implementing themes and goals seems intimidating. The roadmap will force product owners to put serious thought into how epics and user stories are contributing to business strategy and whether particular areas of work are important. Themes will also help track resource investment at the start of the project. Track the investments in each new theme on the roadmap to ensure that all themes are well funded and aren't setup for failure.
 
+Overall, the secret is to foster ongoing conversation and reflection about the work, and to steer steadily towards a longer-term goal rather than drifiting through day-to-day tactical work.
 
+## Report: agile is the competitive advantage for a digital age
+> Harvard Business Review Analytic services throws its weight behind agile development
 
+In a new report, Harvard Business Review Analytic services dubbed agile software development "the competitive advantage for a digital age". Not the most colorful proclaimation of all-time, maybe, but this is the Harvard Business Review Analytic Services. Wait a minute. This is the Harvard Business Review Analytic Services. And they're saying agile software development has "become a trusted and preferred method of development for software teams everywhere"?
 
+What the report outlines is that shift in development trends has happened. With so much competition out there, software development teams must meet customers need faster. Before, that is, a competitior beats them to it. Moving to more agile forms of software planning and delivering helps teams do just that. But it's more than that. Agile helps organization in multiple industries improve product quality, time to market, and employee satisfaction.
 
+The thing to keep in mind, however is that "doing agile right is not a cosmetic fix, but something that companies need to dedicate time and resources to in several key areas". So, it take some times. What's good in life that doesn't take a little time and dedication?
 
