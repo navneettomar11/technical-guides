@@ -513,6 +513,7 @@ The above framework serves two purposes:
 An organization can't achieve its goals without bundling and focusing its resources. Plus, regardless of type of work, individuals make countless trade-off decisions every day in how tasks are done. Ultimately, managers cannot and should not get involved with these micro-level decisions. Management can only provide the right information and environment to empower individuals to act in the best interests of global goals.
 
 > PRO TIP:
+
 > There are many different frameworks using different terminologies for similar purposes. OKRs(objective and key results) are an example of a popular and widespread framework. Practically speaking, we belive that efficient execution matter more than framework or terminology, and don't favor one over another.
 
 ### Takeways and next steps
