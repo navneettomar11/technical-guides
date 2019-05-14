@@ -1,9 +1,11 @@
 # What is kanban?
 Kanban is a popular framework used to implement agile software development. It requires real-time communication of capacity and full transparency of work. Work items are represented visually on a kanban board, allowing team members to see the state of every piece of work at any time.
-[Youtbe Video: What is kanban board](https://www.youtube.com/embed/iVaFVa7HYj4)
+
+[Youtbe Video: What is kanban](https://www.youtube.com/embed/iVaFVa7HYj4)
 
 # What is a kanban board?
 A kanban board is an agile project management tool designed to help visualize work, limit work-in-progress, and maximize efficiency(or flow). Kanban boards use cards, columns, and continous improvement to help technology and service teams commit to the right amount of work, and get it done!
+
 [Youtube Video: What is kanban board](https://youtu.be/Bcid33tgq8A)
 
 > "Kanban" is the Japanese word for "visual signal". If  you work in services or technology, your work is often times invisible and intangible. A kanban board helps make your work visible so you can show it to others and keep everyone on the same page.
@@ -75,5 +77,58 @@ This is a team process, so the first thing your team should do is get together! 
 You'll also want to decide the size and scope of on card. Try and find a estimate or complexity estimate that will be uniform across all the cards. If something is too meaty or challenging, try to break it uo into multiple cards.
 
 Once you decide on a commitment point and delivery point you're ready to get to work. As time progresses, rely on your team to critique and improve the process . Remember kanban calls for acts of leadership at all levels on an ongoing basis, a concept called Kaisen. With the kanban values of respect for people and continous improvement in mind, you'll be up to speed in no time.
+
+# What are WIP Limits?
+In agile development, work in progress(WIP) limits set the maximum amount of work that can exist in each status of a workflow. Limiting the amount of work in progress makes it easier to identify inefficency in a team's workflow. Bottlenecks in a team's delivery pipeline are clearly visible before a situation become dire.
+
+![Youtube Video: Kanban WIP Limits](https://www.youtube.com/watch?v=zEJn6eQO6FE)
+
+## Why are WIP Limits important?
+So now you're thinking, "Tell me more!" (Well, I hope you are.)
+
+Wip limits improve throughput and reduce the amount of work " nearly done", by forcing the team to focus on a smaller set of tasks. At a fundamental level WIP limits encourage a culture of "done". More important, WIP limits make blockers and bottleneck visible. Teams can swarm around blocking issues to get them understood, implemented, and resolved when there is a clear indicator of what existing work is causing a bottleneck. Once blockages are removed, work across the team begins to flow again. These benefits guarantee that increments of value are delivered to customers sooner making WIP limits a valuable tool in agile development.
+> Also, multitasking is deceptively time-intensive
+
+During development, it's easy to think "Oh, I'll pause on this one issue while I begin work on another." Having two issues open means context switching between two different things or transferring work between teammates. Ramping down on one issue and up on another isn't free-it takes time and degrades focus. It's almost always better to work through the original issue rather than starting and not completing-new work. In other words, WIP limits discourage us from impeding our own flow.
+
+Finally, WIP limits point out areas of chronic idealness or overload. They help the team see inefficiencies in the entire process rather than just the particular area in which they work.
+
+>PRO TIP:
+>For teams new to WIP limits, they will feel awkward. Take the time to discuss them in the first few iterations. Understand when and why the team hit the WIP limits. Resist the temptation to arbitrarily adjust them at first, If a breach becomes consistent, that's a sign that either the WIP limit is too restrcitive or the team's process is inefficent.
+
+## Using WIP limits on agile teams
+Now that you're sold on their value, let's go down to brass tacks.
+
+When rolling out a new workflow, make a team decision to determine the WIP limits for each status. We recommend setting WIP limits after monitoring the average number of work items in each status for a few sprints. Below is a sample agile board with WIP limit used by a typical software development team.
+![Agile Kanban board](assets/agile_kanban_board.png)
+
+Above, a WIP limit has been set on code review. Since the column is exceeding its limit, the background has turned red.
+
+Since there's nothing left to do once an issue reaches done, there is no need for a WIP limit there. In the board above, "Ready for dev" signifies that the story has been fully vetted by the product owner and team. The development pulls work from "ready for dev" into "in progress" as they start on work items. As a best practice, it is important to keep enough work in the "ready for dev" status so that each member of the development team remains fully utilized. By keeping only just enough stories in the "ready for dev" state, the product owner doesn't get too far ahead of the game when it comes to fleshing out requirements, and the program becomes more responsive to change.
+
+The "in progress" status list work that's under active development. The goal of WIP limits in this case is to ensure that everyone has work to do, but no one is multitasking. In the board above, the limit for "in progress" items is 4, and there are currently 3 items in that state. This tells the team they've got capacity to take on more work. As a best practice, some teams set the maximun WIP limit below the number of team members. The idea is to bake in room for good agile pratices. If a developer finishes an item, but the team is already at their WIP limit, they know it's time to knock out a few code reviews or join another developer for some pair programming.
+
+The "code review" status indicates stories that have been fully written but need to reviewed before merging into the code base. Timely code reviews are a best practice that establish quality, get new innovation out to market faster, make merges easier by reducing open branches, and spread knowledge across the engineering team. Items in this status should be acted on urgently, for few reasons:
+- The code doesn't rot as team members check in new code.
+- The developer doesn't lose the context he or she gained in the writing the original code.
+- The feature can be merged into the main branch of release.
+
+WIP limits guarantee un-reviewed code doesn't pile up.
+
+Note that in the agile board above, the team has too many code reviews, so the column has turned red to indicate that.
+> ANTI-PATTERNS TO WATCH FOR:
+> - WIP limit are raised as needed so the team doesn't hit them anymore. ("Debt ceiling" anyone?)
+>- Everyone has large "background task" on their plate to mask time when they'd otherwise be idle.
+> - Team members sit idle waiting for more work to pull in, rather than swarming on bottlenecks.
+> - Throwing more person hours at persistent bottlenecks is preferred over improvements in eginerring practices or team processes.
+
+## 4 goals for agile teams using WIP limits
+Like any new activity, WIP limits may feel awkward at first. The goal here is to optimize the team over the medium-term, and the short-term awkwardness is actually a good thing. It's causing the team to feel some pain points in their process. After the team uses their WIP limits for a few weeks, make adjustments as needed. Resist the temptation to raise a WIP limit just because the team keeps hitting it. Seize that opportunity to increase capacity-ideally, by educating the team and giving each member new skill sets or making some aspect of the development process more efficient.
+- **Goal 1**: Size individual tasks consistently. When breaking down requirements and user stories, it's important to keep individual tasks to no more than 16 hours of work. Doing so increase the team's ability to estimate confidently, and it helps prevent bottlenecks. Nothing slow down a team and aggravates WIP limits like a big work item clogging up the pipeline.
+> PRO TIP:
+> When work in progress limits are working for the team, an issue's cycle time will drop. Cycle time is the amount of time it takes to complete an issue. 
+- **Goal 2**: Map WIP limits to the team's skills. The above example assumes team members have similar skill sets. If you team has specialist on it, work in progress limits may differ when the specialist is involved. Create a status specific for the specialist's work. If bottleneck occur in that status, use the opportunity to educate other team members to add additional capacity for the specialist's skill sets and increase flow across the entire team.
+- **Goal 3**: Reduce idleness. When a team member has some downtime, encourage them to help an upstream or downstream team member. They'll contribute to the overall productivity of the team, and learn something along the way!
+- **Goal 4**: Protect a sustainable engineering culture. Work in progress limits do not mean developers need to rush through work to avoid work overload in a particular status. They are meant to support solid agile engineering pratices that protect the quality of the product and health of the code base.
 
  
