@@ -81,7 +81,7 @@ Once you decide on a commitment point and delivery point you're ready to get to 
 # What are WIP Limits?
 In agile development, work in progress(WIP) limits set the maximum amount of work that can exist in each status of a workflow. Limiting the amount of work in progress makes it easier to identify inefficency in a team's workflow. Bottlenecks in a team's delivery pipeline are clearly visible before a situation become dire.
 
-s[Youtube Video: Kanban WIP Limits](https://www.youtube.com/watch?v=zEJn6eQO6FE)
+[Youtube Video: Kanban WIP Limits](https://www.youtube.com/watch?v=zEJn6eQO6FE)
 
 ## Why are WIP Limits important?
 So now you're thinking, "Tell me more!" (Well, I hope you are.)
@@ -93,9 +93,7 @@ During development, it's easy to think "Oh, I'll pause on this one issue while I
 
 Finally, WIP limits point out areas of chronic idealness or overload. They help the team see inefficiencies in the entire process rather than just the particular area in which they work.
 
->PRO TIP:
-s
->For teams new to WIP limits, they will feel awkward. Take the time to discuss them in the first few iterations. Understand when and why the team hit the WIP limits. Resist the temptation to arbitrarily adjust them at first, If a breach becomes consistent, that's a sign that either the WIP limit is too restrcitive or the team's process is inefficent.
+>PRO TIP: *For teams new to WIP limits, they will feel awkward. Take the time to discuss them in the first few iterations. Understand when and why the team hit the WIP limits. Resist the temptation to arbitrarily adjust them at first, If a breach becomes consistent, that's a sign that either the WIP limit is too restrcitive or the team's process is inefficent.*
 
 ## Using WIP limits on agile teams
 Now that you're sold on their value, let's go down to brass tacks.
@@ -126,9 +124,7 @@ Note that in the agile board above, the team has too many code reviews, so the c
 ## 4 goals for agile teams using WIP limits
 Like any new activity, WIP limits may feel awkward at first. The goal here is to optimize the team over the medium-term, and the short-term awkwardness is actually a good thing. It's causing the team to feel some pain points in their process. After the team uses their WIP limits for a few weeks, make adjustments as needed. Resist the temptation to raise a WIP limit just because the team keeps hitting it. Seize that opportunity to increase capacity-ideally, by educating the team and giving each member new skill sets or making some aspect of the development process more efficient.
 - **Goal 1**: Size individual tasks consistently. When breaking down requirements and user stories, it's important to keep individual tasks to no more than 16 hours of work. Doing so increase the team's ability to estimate confidently, and it helps prevent bottlenecks. Nothing slow down a team and aggravates WIP limits like a big work item clogging up the pipeline.
-> PRO TIP:
-
-> When work in progress limits are working for the team, an issue's cycle time will drop. Cycle time is the amount of time it takes to complete an issue. 
+> PRO TIP: *When work in progress limits are working for the team, an issue's cycle time will drop. Cycle time is the amount of time it takes to complete an issue.*
 - **Goal 2**: Map WIP limits to the team's skills. The above example assumes team members have similar skill sets. If you team has specialist on it, work in progress limits may differ when the specialist is involved. Create a status specific for the specialist's work. If bottleneck occur in that status, use the opportunity to educate other team members to add additional capacity for the specialist's skill sets and increase flow across the entire team.
 - **Goal 3**: Reduce idleness. When a team member has some downtime, encourage them to help an upstream or downstream team member. They'll contribute to the overall productivity of the team, and learn something along the way!
 - **Goal 4**: Protect a sustainable engineering culture. Work in progress limits do not mean developers need to rush through work to avoid work overload in a particular status. They are meant to support solid agile engineering pratices that protect the quality of the product and health of the code base.
