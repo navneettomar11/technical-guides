@@ -130,7 +130,7 @@ Like any new activity, WIP limits may feel awkward at first. The goal here is to
 - **Goal 4**: Protect a sustainable engineering culture. Work in progress limits do not mean developers need to rush through work to avoid work overload in a particular status. They are meant to support solid agile engineering pratices that protect the quality of the product and health of the code base.
 
 ## Kanban vs Scrum
-#### Uncover the key considerations when choosing between scrum or kanban, and what to do if you can't decide
+`Uncover the key considerations when choosing between scrum or kanban, and what to do if you can't decide`
 
 Agile is set of ideals and principles that serve as our north star. Kanban and scrum are frameworks that help teams adhere to agile principles and get stuff done.
 
@@ -142,7 +142,8 @@ It's easy to point out the differences between scrum pratices and kanban pratice
 
 **Scrum** team commit to ship working software through set intervals called sprints. Their goal is to create learning loops to quickly gather and integrate customer feedback. Scrum team adopt specific roles, create special artificats, and hold regular ceremonies to keep things moving forward.
 
-||Scrum|Kanban|
+| |Scrum|Kanban|
+|-|-----|------|
 |Cadence|Regular fixed length sprint(i.e. 2 weeks)|Continous flow|
 |Release methodology| At the end of each sprint|Continous delivery|
 |Roles|Product owner, scrum master, development team| No required roles|
