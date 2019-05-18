@@ -129,4 +129,92 @@ Like any new activity, WIP limits may feel awkward at first. The goal here is to
 - **Goal 3**: Reduce idleness. When a team member has some downtime, encourage them to help an upstream or downstream team member. They'll contribute to the overall productivity of the team, and learn something along the way!
 - **Goal 4**: Protect a sustainable engineering culture. Work in progress limits do not mean developers need to rush through work to avoid work overload in a particular status. They are meant to support solid agile engineering pratices that protect the quality of the product and health of the code base.
 
- 
+## Kanban vs Scrum
+#### Uncover the key considerations when choosing between scrum or kanban, and what to do if you can't decide
+
+Agile is set of ideals and principles that serve as our north star. Kanban and scrum are frameworks that help teams adhere to agile principles and get stuff done.
+
+It's easy to point out the differences between scrum pratices and kanban pratices, but that's just at the surface level. While the practices differ, the principles are largely the same. Both frameworks will help you build better products(and services) with fewer headaches.
+
+**Agile** is a structred and iterative approach to project managment and product development. It recognizes the volatility of product development, and provides a methodology for self-organizing teams to respond to change without going off the rails. Today, agile is hardly a competitive advantage. No one has the luxury to develop a product for years or even months in a black box. This means it's more important than even to get it right.
+
+**Kanban** is all about visualizing your work, limit work in progress, and maximizing efficiency(or flow). Kanban teams focus on reducing the time it takes to take a project(or user story) from start to finish. They do this by using a kanban board and continously improving their flow of work.
+
+**Scrum** team commit to ship working software through set intervals called sprints. Their goal is to create learning loops to quickly gather and integrate customer feedback. Scrum team adopt specific roles, create special artificats, and hold regular ceremonies to keep things moving forward.
+
+||Scrum|Kanban|
+|Cadence|Regular fixed length sprint(i.e. 2 weeks)|Continous flow|
+|Release methodology| At the end of each sprint|Continous delivery|
+|Roles|Product owner, scrum master, development team| No required roles|
+|Key metrics| Velocity| Lead time, cycle time, WIP|
+|Change philosophy|Teams should not make changes during the sprint|Change can happen at any time|
+
+### Scrum: A structured agile approach
+With scrum, you team promises to ship some valuable increment of work by the end of each sprint. Scrum is built on empiricism, focusing on small increments of work that will help you lean from your customer and better inform what you do next. Here's how it break down.
+
+#### Scrum cadence
+Scrum move fast, with sprints of two to at most four weeks with clear start and finished dates. The short time from forces complex task to be split into smaller stories, and helps your team learn quickly. A key question is this: Can your team ship useable code that fast?
+
+Sprints are puunctuated by the sprint planning, sprint revirew, and retrospective meetings and peppered with daily scrum(standup) meetings. These scrum ceremonies are lightweight and run on a continous basis.
+
+#### Release methodology
+Nowdays, it's common to have adhoc releases in scrum, but it's long been a best practice to release at the end of each sprint. Teams set an objective for each sprint, the sprint goal, and either approves it for release in the sprint review meeting or don't.
+
+#### Scrum Roles
+Scrume has three clearly defined roles.
+- The **product owner** advocates for the customer, manages the product backlog, and helps prioritize the work done by development team.
+- The **scrum master** helps the team stay grounded in the scrum principles.
+- The **development team** chooses the work to be done, delivers increment, and demonstrates collective accountability.
+
+Who manages the scrum team? Well nobody. Scrum teams are self organizing and everyone is equal, despite having different responsibilities. The team is united by the goal of shipping value to customers.
+
+#### Key metrics
+Velocity- the number of story points completed in a sprint-is the central metric for scrum teams. It guides future sprint commitments, or how much work the scrum team takes on in future sprints. If the team completes an average of 35 story points per sprint(Velocity = 35), it won't agree to a sprint backlog that contains 45 points.
+
+#### Change philosophy
+Teams strive to not make scope changes during a sprint. Scrum teams sometimes get feedback and learn that what they're working on isn't as valuable to the customers as they thought. In such cases, the scope of the sprint should change to reflect the importance of shipping value to the customer first and foremost. During the sprint retrospective, scrum teams should discuss how to limit change in future, as changes put the potentially shippable increment at risk.
+
+### Kanban: Continous improvement, flexible process
+Kanban helps visualize your work, limit work-in-progress(WIP) and quickly move work from "Doing" to "Done".
+
+Kanban is great for team that have lots of incoming requests that vary in priority and size. Whereas scrum processes require high control over what is in scope, kanban let's you go with the flow. Let's take look at the same five consideration to help you decide.
+
+#### Kanban cadence
+Kanban is based on continous workflow structure that keeps teams nimble and ready to adapt to changing priorities. Work items - represented by cards - are organized on a kanban board where they flow from one stage of the workflow(column) to the next. Common workflow stages are To Do, In Progress, In Review, Blocked, and Done. But that's doing.
+
+The best part of kanban is making custom columns for how your team works. My team ships content, so our columns(simplified) go from Backlog, to Prioritized, to Outlines Ready, to Writing, Designing, Technical Reviews, and Shipped Our board helped us learn that we ship about one piece of content per week, and where our bottlenecks are(looking at you Techincal Review).
+
+#### Release methodolody
+In kanban, updates are released whenever they are redy, without a regular schedule or predetermined due dates.
+
+In theory, kanban does not prescribe a fixed time to deliver a task. If the task get completed earilier(or later), it can be released as needed without having to wait for a release milestone like sprint review.
+
+#### Kanban roles
+The whole team owns the kanban board. Some teams enlist an agile coach but unlike scrum, there is not single "kanban master" who keeps everthing running smoothly. It's the collective responsibility of the entire team to collaborate on and deliver the tasks on the board.
+
+#### Key metrics
+Lead time and cycle are important metrics for kanban teams. The deal with the average amount of time that it takes for a task to move from start to finish. Improving cycle times indicates the success of kanban teams.
+
+The Cumulative Flow Diagram(CFD) is another analytical tool used by kanban team to understand the number of work items in each state. CFD help identify specific bottlenecks that need to be resolved for better throughput.
+
+Another way to deal with bottlenecks in through Work In Progress(WIP) limits. A WIP limit caps the number of cards that can be in any one column at one time. When you reach your WIP limit, a tool like JIRA software caps that column and the team swarms on those items to move them forward.
+
+#### Change philosophy
+A kanban worflow can change at any time. New work items can get added to the backlog and existing cards can get blocked or removed all together based on prioritization. Also, if the team capacity changes, WIP limit can be recalibrated and work items adjusted accordingly. It's all about being flexible in kanban.
+
+### Kanban vs Scrum: What if you can't choose?
+Scrum and kanban are "agile by-the-books". They work in a tired and true fashion that is quite frankly hard to argue against. Borrowing from another famed catch-phrase, you might say that, "No one get fired for choosing scrum".
+
+But your decision doesn't need to be so black and white. Hundreds of teams ate using hybrid models influenced by both scrum and kanban. We set out to help teams do so in Jira Software and recently released next-gen projects.
+
+Next-gen projects allows teams to pick and choose the agile features that make sense for them; whether that's scrum, kanban, or mix of both. Instead of implementing one framework on day one, next-gen projects allow you to progressively layer on more and more powerful features as you learn what works for your team (and what doesn't).
+
+You can confidently chooe next-gen Scrum or next-gen Kanban knowing that both templates can evolve to suit the needs of your team.
+
+Regardless of what you choose stick with it for a little while. Take some work from the backlog all the way to done and then ask your team what went well and what went poorly. By trying scrum and kanban and asking these questions, you're well on your way to agile bliss.
+
+
+
+
+
+
