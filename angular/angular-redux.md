@@ -9,6 +9,7 @@ We can build rich, easy to understand web apps by using Redux as the backbone of
 > There are several attempts to use Redux or create a Redux inspired system that works  with Angular. Two notable examples are:
 > - ngrx/store and
 > - angular2-redux
+>
 > `ngrx` is a Redux-inspired architecture that is heavily observables-based. angular2-redux uses Redux itself as a dependency, and adds some angular helpers (dependency-injection, observable wrappers).
 > Here we're not going to use either. Instead we're goiung to use Redux directly in order to show the concepts without introducing a new dependency. That said both of these libraries may be helpful to you when writing your apps.
 
@@ -20,7 +21,7 @@ The key ideas of Redux are this:
 - User interaction (and other code) fires action which describe what happened.
 - A new state is created by combining he old state and the action by fundction called the reducer.
 
-[!redux-reducer](assets/redux-diagram.png)
+![redux-reducer](assets/redux-diagram.png)
 
 If the above bullet isn't clear yet, don't worry about it - putting these ideas into pratice is the goal of the rest of this post.
 
@@ -625,7 +626,7 @@ Now that we have a handle on using Redux in isolation, the next step is to hook 
 In the last section we walked through the core of Redux and showed how to create reducers and use stores to manage our data in isolation. Now it's time to level-up and integrate Redux with our Angular components.
 
 In this section we're going to create a minimal Angular app that contains just a counter which we can increment and decrement with a button
-[!angular counter component](assets/counter-app.png)
+![angular counter component](assets/counter-app.png)
 
 By using such a small app we can focus on the integration points between redux and angular.
 
