@@ -9,6 +9,7 @@ Use `cf config` to set the language. To set the language with `cf config`, use t
 
 For example, to set the language to Portuguese and confirm the change by running `cf help`:
 > $ cf config --locale pt-BR
+
 > cf help
 
 ### Login
