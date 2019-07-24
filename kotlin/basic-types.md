@@ -1,6 +1,5 @@
 # Numbers
 The representation of number in kotlin is pretty similar to Java, however, Kotlin does not allow internal conversion of different data types. Following table lists different variable lengths for different numbers.
-|----|----|
 |Type|Size|
 |----|----|
 |Double|64|
@@ -9,7 +8,6 @@ The representation of number in kotlin is pretty similar to Java, however, Kotli
 |Int|32|
 |Short|16|
 |Byte|8|
-|----|----|
 
 In the following example, we will se how kotlin works different data types. 
 ```kotlin
