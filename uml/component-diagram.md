@@ -43,6 +43,7 @@ In this second approach the interface symbols with a complete circle at their en
 
 ### Model a component relationships
 When showing a component's relationship with other components, the lollipop and socket notation must also incluse a dependency arrow(as used in the class diagram). On a component diagram with lollipops and sockets, note that dependency arrow comes out of the consuming(requiring) socket and its arrow head connects with the provider's lollipop shown in Figure 5.
+
 **Figure 5: A compoent diagram that shows the Order System component depends on the other components.**
 ![Modeling a component relationships](assets/Bell-Fig5.gif)
 
@@ -50,6 +51,7 @@ Figure 5 shows that the Order system component depends on the Customer Repositor
 
 ### Subsystems
 In UML 2 the subsystem classifier is a specialized version of a component classifier. Because of this, the subsytem notation element inheirts all the same rules as the component notation element. The only difference is that subsystem notation elemenet has the keyword of subsystem "instead of component", as show in Figure 6.
+
 **Figure 6: an example of a subsystem element**
 ![Subsystems](assets/Bell-Fig6.gif)
 
@@ -62,6 +64,7 @@ The component diagram is one of the easier-to-understand diagrams, so there is n
 
 ### Showing a component's internal structure
 There will be times when it makes sense to display a component's internal structure. To show a component's inner structure you merely draw the component larger than normal and place the inner parts inside the name of the encompassing component. Figure 7 show's the store component inner structure.
+
 **Figure 7: This component's inner structure is composed of other components**
 ![Beyond the basis](assets/Bell-Fig7.gif)
 
