@@ -2,7 +2,9 @@
 
 ## Introduction
 > Pact (noun) :
+>
 > A formal agreement between individuals or parties.
+>
 > "The country negotiated a trade pact with the US"
 
 Pact is a contract testing tool. Contract testing is a way to ensure that services (such as an API provider and a client) can communicate with each other. Without contract testing, the only way to know that services can communicate is by using expensive and brittle integration tests.
@@ -16,9 +18,13 @@ Contract testing is immediately applicable anywhere where you have two services 
 
 In general, a contract is between a consumer(for example, a client that wants to receive some data) and a provider(for example, an API on a server that provides the data the client needs). In microservice architectures, the traditional term client and server are not always appropriate -- for example, when communication is achieved through message queues. For this reason, we stick to consumer and provider in this documentation.
 
+---
+
 ## Consumer Driven Contracts
 Pact is a `consumer-driven` contract testing tool. This means the contract is written as part of the consumer tests. A major advantage of this pattern is that only parts of the communication that are actually used by the consumer(s) get tested. This in turn means that any provider behaviour not used by current consumers is free to change without breaking tests.
 Unlike a schema or specification (eg. OAS), which is a static artifact that describes all possible states of a resource, a Pact contract is enforced by executing a collection of test cases each of which describes a single concrete request/response pair - Pact is, in effect "contract by example".
+
+---
 
 ## How Pact works
 Remember these definitions from the introduction:
@@ -28,6 +34,7 @@ Remember these definitions from the introduction:
 A contract between a consumer and provider is called a `pact`. Each pact is collection of `interactions`. Each interactions describes:
 - An expected request - describing what the consumer is expected to send to the provider(this is always present for synchronous interaction like HTTP requests, but not required for asynchronous interaction like message queues)
 - a minimal expected response - describing the parts of the response the consumer wants the provider to return.
+
 ![Pact Interaction](assets/interactions.png)
 
 The first step in writing a pact test is to describe this interaction.
@@ -37,6 +44,7 @@ Consumer Pact test operate on each interaction described eariler to say "assumin
 
 Each interaction is tested using the pact framework, driven by the unit test framework inside the consumer codebase:
 Following the diagram:
+
 ![Pact Interaction](assets/interaction_02.png)
 
 1. Using the Pact DSL, the expected request and response are registered with the mock service.
@@ -64,17 +72,20 @@ end
 Although there is conceptually a lot going on in a pact interaction test, the actual test code is very straightforward. This is a major selling point of Pact.
 
 In Pact, each interaction is considered to be independent. This means that each test only tests one interaction. If you need to describe interactions that depend on each other, you can use `provider states` to do it. Provider states allow you describe the preconditions on the provider required to generate the expected response - for example, the existence of specific user data. This is explained further in the provider verification section below.
+
 ![Pact Interaction with provider state](assets/interaction_with_provider_state.png)
 
 Instead of writing a test that says "create user 123, then log in", you would write two separate interactions - one that says "create user 123", and one with provider state "user 123 exists" that says "log in as user 123".
 
 Once all of the interactions have been tested on the consumer side, the Pact framework generates a pact file, which describes each interaction:
+
 ![Pact File](assets/pact-file.png)
 
 This pact file can be used to verify the provider.
 
 ## Provider Verification
 In constrast to the consumer tests, provider verification is entirely driven by the Pact framework:
+
 ![Provider Verification](assets/provider-verfication.png)
 
 In provider verification, each request is sent to the provider, and the actual response it generates is compared with the minimal expected response described in the consumer test.
@@ -82,10 +93,12 @@ In provider verification, each request is sent to the provider, and the actual r
 Provider verification passes if each request generates a response that contains at least the data described in the minimal expected response.
 
 In many cases, your provider will need to be in a particular state (such as "user 123 is logged in", or "customer 456 has an invoice #678"). The Pact framework supports this be letting you set up the data described by the provider state before the interaction is replayed:
+
 ![Provider verification with state](assets/provider-verficiation-with-state.png)
 
 ## Putting it all together
 Here's a repeat of the two diagrams above:
+
 ![Pact test and verify](assets/pact-test-n-verify.png)
 
 If we pair the test and verification process for each interaction, the contract between the consumer and provider is fully tested with having to sping up the services together.
