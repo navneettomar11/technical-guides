@@ -84,7 +84,7 @@
     * Vulnerabilities are typically found by penetration testers and secure code reviewers.
 
 # Defense in Depth  
-[!Defense in Depth](assets/defence-in-depth-2054.jpg)
+![Defense in Depth](assets/defence-in-depth-2054.jpg)
 
 # STRIDE
 ## Why ? 
@@ -103,5 +103,9 @@ Stand for
 # Secure Development Process
 
 ## Microsoft security development lifecycle (MS SDL)
-[!SDL](assets/5554.SDL_Steps.jpg)
+![SDL](assets/5554.SDL_Steps.jpg)
+
+Other secure development processes are:
+- Software Assurance Maturity Model (previous called CLASP)
+- Touchpoints for sotware security
 
