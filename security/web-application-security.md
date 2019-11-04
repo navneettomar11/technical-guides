@@ -40,7 +40,7 @@
     * Force change of default credentials
     * Least privilege: turn everything off by default (debugging, admin, interface,etc.)
     * Static tools that scan code for default settings.
-    * Keep patching, updating and testing the syste .
+    * Keep patching, updating and testing the system.
     * Regularly audit system deployment in production system.
 
 # Sensitive Data Exposure
