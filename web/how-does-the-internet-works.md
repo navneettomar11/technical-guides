@@ -8,7 +8,7 @@ Because the Internet is a global network of computers each computer connected to
 
 The picture below illustrates two computer connected to the Internet; your computer with IP address 1.2.3.4 and the another computer with IP address 5.6.7.8. The internet is represented as an abstract object in-between.
 
-[!Diagram-1](images/ruswp_diag1.gif)
+![Diagram-1](images/ruswp_diag1.gif)
 
 If you connect to the Internet through an Internet Service Provider(ISP), you are usually assigned a temporary IP address for the duration of your dial-in session. If you connect to the Internet from a local area network(LAN) your computer might have a permanent IP address or it might obtain temporary one from a DHCP(Dynamic Host Configuration Protocol) server. In any case, if you are connected to the Internet, your computer has a unique IP address.
 
@@ -28,7 +28,7 @@ So your computer is connected to the Internet and has a unique address. How does
 
 If we were to follow the path that the message "Hello computer 5.6.7.8!" took from our computer to the computer with IP Address 5.6.7.8, i would happen something like this:
 
-[!Diagram-2](images/ruswp_diag2.gif)
+![Diagram-2](images/ruswp_diag2.gif)
 
 1. The message would start at the top of the protocol stack on your computer and work it's way downward.
 2. If the message to be sent is long, each stack layer that the message passes through may break the message up into smaller chunks of data. This is because data sent over the Internet(and most computer networks) are sent in manageable chunks. On the Internet, these chunks of data are known as **packet**.
