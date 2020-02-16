@@ -62,6 +62,7 @@ Now let's movie into 1st Normal forms
 - Each table cell should contain a single value.
 - Each record need to be unique.
 The above table in 1NF -
+
 |Full Names|Physical Address|Movies Rented|Salutation|
 |----------|----------------|-------------|----------|--------|
 |Janet jones|First stree plot no: 4| Pirates of the Caribbean|Ms.|
