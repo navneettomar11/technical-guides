@@ -64,7 +64,7 @@ Now let's movie into 1st Normal forms
 The above table in 1NF -
 
 |Full Names|Physical Address|Movies Rented|Salutation|
-|----------|----------------|-------------|----------|--------|
+|----------|----------------|-------------|----------|
 |Janet jones|First stree plot no: 4| Pirates of the Caribbean|Ms.|
 |Janet jones|First stree plot no: 4| Clash of titans|Ms.|
 |Robert Phil|3rd street 34| Forgetting Sarah Marshal|Mr.|
