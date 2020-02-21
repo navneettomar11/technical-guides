@@ -151,7 +151,7 @@ So, if K is O(n), CountSort becomes linear sorting, which better than comparison
 For each digit i where i varies from the least significant digit to the most significant digit of a number. Sort input array using countsort algorithm according to ith digit.
 
 ### Complexity Analysis
-THe complexity is O((n+b) * log<sub>b<sub> (maxxx)) where b is the base for representing numbers and maxxx is the maximum element of the input array. This is clearly visible as we make (n + b) iterations log<sub>b</sub>(maxx) times (number of digits in the maximum element). If maxx <= n <sup>c</sup>, then the complexity can be written as O(n * log<sub>b</sub>(n)).
+THe complexity is O((n+b) * log<sub>b</sub> (maxxx)) where b is the base for representing numbers and maxxx is the maximum element of the input array. This is clearly visible as we make (n + b) iterations log<sub>b</sub>(maxx) times (number of digits in the maximum element). If maxx <= n <sup>c</sup>, then the complexity can be written as O(n * log<sub>b</sub>(n)).
 
 ### Advantages
 1. Fast whene the keys are short i.e. when the range of the array element is less.
