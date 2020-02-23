@@ -3,7 +3,7 @@
 # Injection
 - **What is it?** Untrusted user input is interpreted by server and executed.
 - **What is the impact?** Data can be stolen, modified or deleted.
-- **How to prevent?** 
+- **How to prevent?**
     * Reject untrusted/invalid input data.
     * Use latest frameworks
     * Typically found by penetration tester / secure code review.
@@ -24,7 +24,7 @@
 - **What is the impact?**  Hijack user sessions, deface web sites, change content
 - **How to prevent?**
     * Escape untrusted input data,
-    * Latest UI framework 
+    * Latest UI framework
 
 # Broken Access Control
 - **What is it?** Restrictions on what authenticated users are allowed to do are not properly enforced.
@@ -65,19 +65,19 @@
 - **How to prevent?**
     * Reauthenticate for all critical actions (e.g. transfer money)
     * Include hidden token in request.
-    * Most web frameworkds have built-in CSRF protecting, but isn't enabled by default!
+    * Most web frameworks have built-in CSRF protecting, but isn't enabled by default!
 
 # Using Components with known Vulnerabilities
 - **What is it?** Third-party components that the focal system use (e.g. authentication frameworks)
-- **What is the impact?** Dependening on the vulnerability it could range from subtle to seriously bad.
-- **How to prevent?** 
+- **What is the impact?** Depending on the vulnerability it could range from subtle to seriously bad.
+- **How to prevent?**
     * Always stay current with third-party components
-    * If possible, follow best pratice of virtual patching.
+    * If possible, follow best practice of virtual patching.
 
-# Underprotected APIs
-- **What is it?** Applications expose rich connectivity options through APIs, in the browser to a user. These APIs are often unprotected and contain numberous vulnerabilities 
-- **What is the impact?** Data theft, corruption, unathourized access, etc.
-- **How to prevent?** 
+# Under protected APIs
+- **What is it?** Applications expose rich connectivity options through APIs, in the browser to a user. These APIs are often unprotected and contain numerous vulnerabilities
+- **What is the impact?** Data theft, corruption, unauthorized access, etc.
+- **How to prevent?**
     * Ensure secure communication between client browser and server API.
     * Rejected untrusted/invalid input data.
     * Use latest framework
@@ -87,17 +87,17 @@
 ![Defense in Depth](assets/defence-in-depth-2054.jpg)
 
 # STRIDE
-## Why ? 
+## Why ?
 - Examine what can go wrong
 - What are you going to do about it
 - Determine whether you doing a good job.
 
-Stand for 
+Stand for
 - Spoofing - pretending of
 - Tempering - removing the traces
-- Repudiation - 
+- Repudiation -
 - Information disclosure
-- Denail of service
+- Denial of service
 - Elevation of privilege
 
 # Secure Development Process
@@ -107,5 +107,4 @@ Stand for
 
 Other secure development processes are:
 - Software Assurance Maturity Model (previous called CLASP)
-- Touchpoints for sotware security
-
+- Touchpoints for software security
