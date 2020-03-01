@@ -214,6 +214,14 @@ You can confidently chooe next-gen Scrum or next-gen Kanban knowing that both te
 
 Regardless of what you choose stick with it for a little while. Take some work from the backlog all the way to done and then ask your team what went well and what went poorly. By trying scrum and kanban and asking these questions, you're well on your way to agile bliss.
 
+### Kanplan: where your backlog meets kanban
+> Is praticing agile with a mixed methodology right for your team?
+
+There's no silver bullet when it comes to picking an agile team. Whether you use kanban, scrum, or a combination of the two, like scrumban and kanplan, agile is a team process. Every team needs to figure out which framework works best as a foundation for how to plan, track, and release great software.
+
+#### Scrumban vs. Kanban vs. scrum
+
+
 
 
 
