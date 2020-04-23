@@ -37,6 +37,7 @@ The "Bell Curve" is a Normal distribution. And the yellow histogram shows some d
 We say the data is "normally distributed"?  
 The normal distribution has:
 mean = median = mode
+
 ![Normal Distribution](images/normal-distribution-1.svg)
 
 symmetry about the center. 50% of values less than the mean and 50% greater than the mean.

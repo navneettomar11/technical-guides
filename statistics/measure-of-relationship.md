@@ -50,9 +50,13 @@ Covariance and correlation both primarily assess the relationship between variab
 **Covariance** measures the total variation of two random variables from their expected values. Using covariance we can only gauage the direction of the relationship(whether the variables tend to move in tandem or show an inverse relationship). However, it does not indicate the strength of the relationship, nor the dependency between the variables.
 On the other hand, **correlation** measures the strength of the relationship between variables. Correlation is the scaled measure of covariance. It is dimensionless. In other word, the correlation coffecient is always a pure value and not measured in any units.
 The relationship between the two concepts can be expressed using the formula below:
+
 p(x,y) = Cov(x,y)/sd<sub>x</sub>sd<sub>y</sub>
 
 p(x,y) = the correlation between the variable x and y
+
 Cov(x,y) = the covariance between the variable x and y
+
 sd<sub>x</sub> = the standard deviation of the x-variable
+
 sd<sub>y</sub> = the standard deviation of the y-variable
