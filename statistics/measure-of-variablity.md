@@ -1,3 +1,8 @@
+# What is Sampling Variability ? Ant Why is it Important ?
+You can't always get what you want, but if you try sometimes, you get what you need. In term of statistics, we want to know everything that there is to know about a group (or population). But sometimes that is just not feasible. Instead, we deal with approximation of a smaller group (or sample) and hope that the answer we get isn't too far from the truth. The difference between the truth of the population and sample is called sampling variability.
+
+In its most basic definition, sampling variability is the extend to which the measures of a sample differ from the measure of the population. 
+
 # Measure of Variability
 Variability means 'Scatter' or 'Spread'. Thus measures of variability refer to the scatter or spread of scores around their central tendency. The measures of variability how the distribution scatter above and below the central tender.
 
@@ -60,6 +65,11 @@ To calculate the variance follows these steps
 - Then for each number: substract the Mean and square the result(the squared difference).
 - The workout the averabe of those squared differences.
 
+## Why do we divide by n-1 instead of by n ?
+When we calculate the sample `sd` we estimate the population mean the sample mean, and dividing by (n-1) rather than n which gives it a special property that we call an "unbiased estimator". Therefore s<sup>2</sup> is an **unbiased estimator** for the population variance.
+
+The sample variance (and therefore sample standard deviation) are the common default calculations used by software. When asked to calculate the variance or standard deviaton of a set of data assume - unless otherwise instructed - this sample data and therefore calculating the sample variance and sample standard deviation.
+
 ### Example
 You and your friends have just measured the heights of your dogs(in millimeters):
 
@@ -95,3 +105,30 @@ And the good thing about the Standard Deviation is that it is useful. Now we can
 ![statistics-standard-deviation](images/statistics-standard-deviation.gif)
 
 So, using the Standard Deviation we have a "standard" way of knowing what is normal, and what is extra large or extra small.
+
+# Coefficient of Variation
+The coefficient of variation (relative standard deviation) is a statistical measure of the dipersion of data points around the mean. The metric is commonly used to compare the data dipersion between distinct series of data. Unlike the standard deviation that must always be considered in the context of the mean of the data, the coeffcient of variation provides a relatively simple and quick tool to compare different data series.
+
+In finance, the coefficent variation is important in investment selection. From a financial perpective, the financial metric represent the risk-to-reward ratio where the volatility shows the risk of an investment and the mean indicates the reward of an investment.
+
+By determining the coefficient of variation of different securities, an investor identifies the risk-to-reward ratio of each security and develops an investment decision. Generally, an investor seeks a security with a lower coefficient (of variation) because it provides the most optimal risk-to-reward ratio with low volatility but high returns. However, the low coefficient is not favorable when the average (expected return) is below zero.
+
+## Formula for Coefficient of Variation
+Mathematically, the standard formula for the coefficient of variations is expressed in the following way:
+
+> Coefficent of Variation = (σ/μ) * 100%
+>
+> Where:
+> - σ - the standard deviation
+> - μ - the mean
+
+## What is 'biased' and 'unbiased' mean ?
+The basic idea of statisitics is to make statements about a set of things using a subset (a sample) of those things.
+
+A sample is "biased" if some members of the population are more likely to be included than others. A simple is "unbiased" if all memebers of the population are equally likely to be included.
+
+Here are two examples. 
+- Suppose I want to find out how big a typical fish is in a lake. One way of getting a sample of the fish would be to use a net. But then I will never catch any of the fish that are smaller than the holes in the net, so I'll think all the fish in the lake are big. This sample is biased because the big fish are more likely to be included in my sample; to get an unbiased sample I need to sample the fish in a different way.
+- Now suppose I want to know how long a beer sleeps every day on average during the year. If I watched it for 10 days in the winter, each day it would sleep 24 hours since bears hibernate in the winter. This sample is biased because in winter the bear sleeps all day while during the reset of the year it is awake part of the day and asleep part of the day. If I want an unbiased sample, I could watch it for 1 day each month for a year, instead of just in the winter.
+
+
