@@ -125,3 +125,70 @@ public class ShapeDao {
 
 As we can see, we are giving an indication to the JVM about the runtime behavior of our objects. If the object implements our marker interface, it can be deleted from the database.
 
+### Marker Interface vs Annotations
+By introducing annotations, Java has provided us with an alternative to achieve the same results as the marker interfaces. Moreover, like marker interfaces we can apply annotations to any class and we can use  them as indicators to perform certain actions. 
+
+So what is the key difference?
+Unlike annotations, interface allow us to take advantage of polymorphism. As a result we can add additional restrictions to the marker interface.
+
+For instance, let's add a restriction that only a Shape type can be removed from the database.
+```java
+public interface Shape {
+    double getArea();
+    double getCircumference();
+}
+```
+In this case, our marker interface, let's call it _DeletableShape_, will look like the following:
+
+```java
+public interface DeletableShape extend Shape {}
+```
+
+Then our class implement the marker interface
+```java
+public class Rectange implements DeletableShape {
+    //implementation details
+}
+```
+Therefore, all DeletableShape implementation are also Shape implementations. Obviously we can't do that using annotation.
+
+However, every design has trade-offs and polymorphism can be used as a counter-argument against marker interfaces. In our example, every class extending Rectangle will automatically implement DeletableShape.
+
+### Marker Interfaces vs Typical Interfaces
+We could get the same result by modifying our DAO's delete() method to test whether our object is a Shape or not instead of testing whether it's a Deletable.
+```java
+public class ShapeDao {
+    //other dao methods
+
+    public boolean delete(Object object) {
+        if (!object instanceof Shape)) {
+            return false;
+        }
+
+        //delete implementation details
+
+        return true;
+    }
+}
+```
+
+So why create a marker interface when we can achieve the same result using a typical interface?
+
+Let imagine that, in addition to the Shape type, we want to remove the Person type from the database as will. In this cases there are two options to achieve that:
+
+The first iption is to add an additional check to our previous delete() method to verify whether the object to delete is an instance of Person or not.
+```java
+public boolean delete(Object object) {
+    if (! (object instanceof Shape || object instanceof Person)) {
+        return false;
+    }
+    //delete implementation details
+    return true;
+}
+```
+But what if we have more types that we want to remove from the database as well? Obviously, this won't be a good option because we have to change our method for every new type.
+
+The second iption is to make the Person type implements the Shape interface, which acts as a marker interface. But is a Person object really a Shape? The answer is clearly no, and that makes the second option worse than the first one.
+
+Hence although we can achieve the same results by using a typical interface as a marker, we'll end up with a poor design.
+
