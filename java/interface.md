@@ -15,7 +15,7 @@ interface Bicycle {
     void applyBrakes(int decrement);
 }
 ```
-TO implement this interface, the name of your class would change (to a particular brand of bicycle, for example, such as ACMEBicyle), and you'd use the _implements_ keyword in the class declaration:
+To implement this interface, the name of your class would change (to a particular brand of bicycle, for example, such as ACMEBicyle), and you'd use the _implements_ keyword in the class declaration:
 
 ```java
 class ACMEBicycle implements Bicycle {
@@ -87,7 +87,7 @@ Java has many build-in marker interface, such as Serializable, Cloneable and Rem
 
 Let's take the example of the *Cloneable interface*. If we try to clone an object that doesn't implement this interface the JVM throws a CloneNotSupportException. Hence, the Cloneable marker interface is an indicator to the JVM that we can call the Object.clone() method.
 
-In the same way, when calling the ObjectOutputStream.writeObject(), **the JVM checks if the obhect implements the Serializable marker interface**. When it's not the case a NotSerializableException is thrown. Therefore the object isn't serialized to the output stream.
+In the same way, when calling the ObjectOutputStream.writeObject(), **the JVM checks if the object implements the Serializable marker interface**. When it's not the case a NotSerializableException is thrown. Therefore the object isn't serialized to the output stream.
 
 ### Custom Marker Interface
 Let's create our own marker interface.
