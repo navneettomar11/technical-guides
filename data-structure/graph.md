@@ -1,7 +1,7 @@
 # Graph
 Graphs are mathematical structures that represent pairwise relationship between objects. A graph is a flow structure that represents the relationship between various objects. It can be visualized by using the following two basic components:
 - **Nodes**: These are the most important components in any graph. Nodes are entities whose relationships are expressed using edges. If a graph comprises 2 nodes A and B and an undirected edge between them then it expressed a bi-directional relationship between the nodes and edge.
-- **Edges**:  Edges are the components that are used to represent the relationships between various nides in a graph. An edge between two nodes expresses a one-way or two-way relationship between the nodes.
+- **Edges**:  Edges are the components that are used to represent the relationships between various nodes in a graph. An edge between two nodes expresses a one-way or two-way relationship between the nodes.
 
 ## Type of nodes
 - **Root Node**: The root node is the ancestor of all other nodes in a graph. It does not have any ancestor. Each graph consists of exactly one root node. Generally, you must start traversing a graph from the root node.
@@ -11,33 +11,34 @@ Graphs are mathematical structures that represent pairwise relationship between 
 - **Unidirected**: An unidirected graph is a graph in which all the edges are bi-directional i.e. the edges do not point in any specific direction
 ![Unidirected Graph](assets/5069914.jpg)
 
-- **Directed**: A directed graph is a graph in which all the edges are uni-directional ie.e the edges point in a single direction.
+- **Directed**: A directed graph is a graph in which all the edges are uni-directional ie. the edges point in a single direction.
 ![Directed Graph](assets/59ec874.jpg)
 
 - **Weighted**: In a weighted graph, each edge is assigned a weight or cost. Consider a graph of 4 nodes as in the diagram below. As you can see each edge has a weight/cost assigned to it. If you want to go from vertex 1 to vertex 3, you can take one of the following 3 paths
     * 1 --> 2 --> 3
     * 1 --> 3
     * 1 --> 4 --> 3
-Therefore the total cost of each path will be as follows :- The total const of 1-->2-->3 will be (1+2) i.e. 3 units, The total cost of 1-->3 will be 1 unit, The total const of 1-->4--> will be (3+2) i.e. 5 units.
+
+Therefore the total cost of each path will be as follows :- The total const of 1-->2-->3 will be (1+2) i.e. 3 units, The total cost of 1-->3 will be 1 unit, The total const of 1-->4-->3 will be (3+2) i.e. 5 units.
+
 ![Weighted Graph](assets/6fd9992.jpg)
 
-- **Cyclic**: A graph is cyclic if the graph comprises a path that starts from vertex and ends at the same vertex. That path is called a cycle. An acyclic graph is a graph that has no cucle.
-A tree is an undirected graph in which any two vertices are connected to only one path. A tree is an acyclic graph and has N-1 edges where N is the number of vertices. Each node in a graph may have one or multiple parent nodes. However, in a tree each node (except the root node) comprises exactly one parent node.
-![Cyclic Graph](assets/9acf1bc.jpg
+- **Cyclic**: A graph is cyclic if the graph comprises a path that starts from vertex and ends at the same vertex. That path is called a cycle. An acyclic graph is a graph that has no cycle. A tree is an undirected graph in which any two vertices are connected to only one path. A tree is an acyclic graph and has N-1 edges where N is the number of vertices. Each node in a graph may have one or multiple parent nodes. However, in a tree each node (except the root node) comprises exactly one parent node.
 
-)
+![Cyclic Graph](assets/9acf1bc.jpg)
 
 ## Graph Representation
 You can represent a graph in many ways. The two most common ways of representing a graph is as follows:
-- **Ajacency Matric**: An ajajacency matrix is VxV matrix A. Element A<sub>ij</sub> is 1 if there is an edge from vertex i to vertext j else  A<sub>ij</sub> is 0.
+- **Adjacency Matric**: An ajajacency matrix is VxV matrix A. Element A<sub>ij</sub> is 1 if there is an edge from vertex i to vertext j else  A<sub>ij</sub> is 0.
 
 The adjacency matric can also be modified for the weight graph in which instead of sotring of 0 or 1 , the weight or cost of the edge will be stored.
 In an unidirected graph if A<sub>ij</sub> = 1 then A<sub>ji</sub> = 1 , may or may not be 1.
 
-Adjajceny matrix provides constanvt time access(O(1)) to determine if there is an edge between two nodes. Space complexity of the adjancency matrix is O<V <sup>2</sup>>.
+Adjacency matrix provides constant time access(O(1)) to determine if there is an edge between two nodes. Space complexity of the adjancency matrix is O<V <sup>2</sup>>.
 
-- **Adjacency List**: The other way to represent a graph is by using an adjancency list. An adjacency list is an array A of seperate lists. Each element of the A<sub>i<sub> is a list. which contains all the vertices that are adjacent to vertex i.
-For weighted graph, the weight or cost of the edge with the vertex in the list using pairs. In an undirected graph, if vertex j is in the A<sub>i</sub> then vertex i will be in list A<sub>j</sub>.
+- **Adjacency List**: The other way to represent a graph is by using an adjancency list. An adjacency list is an array A of seperate lists. Each element of the A<sub>i</sub> is a list. which contains all the vertices that are adjacent to vertex i.
+
+    For weighted graph, the weight or cost of the edge with the vertex in the list using pairs. In an undirected graph, if vertex j is in the A<sub>i</sub> then vertex i will be in list A<sub>j</sub>.
 
 # Breadth First Search
 Graph traversal means visiting every vertex and edge exactly once in a well-defined order. While using certain graph algorithms, you must ensure that each vertex of the graph is visited exactly once. The order in which vertices are visited are important and may depend upon the algorithm or question that you are solving.
@@ -115,3 +116,57 @@ for all neighbours w of s in Graph G:
 if w is not visited
     DFS-recursive(G, w)
 ```
+
+# Minimum Spanning Tree
+Given an undirected and connected graph G = (V, E), a spanning tree of the graph G is a tree that spans G (that is , it includes every of G) and is a subgraph of G (every edge in the tree belongs to G).
+
+The cost of the spanning tree is the sum of the weights of all edges in the tree. There can be many spanning trees. Minimum spanning tree is the spanning tree where the cost is minimum among all spanning trees. There also can be minimum spanning trees.
+
+Minimum spanning tree has direct application in the design of networks. It is used in algorithms approximating the travelling salesman problem., multi-terminal cut problem and minimum-cost weighted perfect matching. Other pratical applications are:
+1. Cluster analysis
+2. Handwriting recognition
+3. Image segmentation
+
+There are two famous algorithms for finding the Minimum Spanning Tree:
+1. Kruskal's Algorithm
+2. Prim's Algorithm
+
+## Kruskal's Algorithm
+Kruskal Algorithm build the spanning tree by adding edges one by one into a growing spanning tree. Kruskal's algorithm follows greedy approach as in each iteration it finds an edge which has least weight and it to the growing spanning tree.
+
+### Algorithm Steps:
+- Sort the graph edges with respect to their weights
+- Start adding edges to the MST from the edge with the smallest weight until the edge of the largest weight.
+- Only add edges which doesn't from a cycle. edges which connect only disconnect components.
+
+So now the queston is how to check if 2 vertices are connected or not?
+
+This could be done using DFS which starts from the first vertex, then check if the second vertex is visited or not. But DFS will make time complexity large as it has an order of O(V + E) where V is the number of vertices, E is the number of edges. So the best solution is "**Disjoint Sets**"
+> Disjoint set are sets whose intersection is the empty set so it means that they don't have any element in common.
+
+Consider following example:
+
+![Kruskal Algorithm](assets/6322896.jpg)
+
+In Kruskal's algorithm, at each iteration we will select the edge with the lowest weight. So, we will start with the lowest weighted edge first i.e. the edge with weight 1. After the we will select the second lowest weighted edge i.e edge with weight 2. Notice these two are totally disjoint. Now, the next edge will be the third lowest weighted edge i.e. edge with weight 3, which connects the two disjoint pieces of the graph. Now, we are not allowed to pick the edge with weight 4, that will create a cycle and we can't have any cycles. So we will select fifth lowest weighted edge i.e. edge with weight 5. Now the other two edges will create cycles so we will ignore them. In the end, we end up with a minimum spanning tree with total cost 11 = (1+2+3+5)
+
+### Time Complexity
+In Kruskal's algorithm, monst time cosuming operation is sorting becasue the total complexity of the Disjoint Set operations will be O(ELogV), which is the overall Time Complexity of the algorithm.
+
+## Prim's Algorithm
+Prim's Algorithm also use Greedy approach to find the minimum spanning tree. In Prim's Algorithm we grow the spanning tree from a starting position. Unlike an edge in Kruskal, we add vertex to the growing spanning tree in Prim's
+
+### Algorithm Steps:
+- Maintain two disjoint sets of vertices. One containing vertices that are in the growing spanning tree and other that are not in the growing spanning tree.
+- Select the cheapest vertex that is connected to the growing spanning tree and is not in the growing spanning tree and add it into the growing spanning tree. This can be done using Priority Queues. Insert the vertices, that are connected to growing spanning tree, into the Priority Queue.
+- Check for cycles. To do that, mark the nodes which have already selected and insert only those nodes in the Priority Queue that are not marked.
+
+Consider the example below:
+![Prim's Algorithm](assets/16597fe.jpg)
+
+In Prim's Algorithm, we will start with an arbitrary node(it doesn't matter which one) and mark it. In each iteration we will mark a new vertex that is adjacent to the one that we have already marked. As greedy algorithm, Prim's algorithm will select the cheapest edge and mark the vertex. So we will simply choose the edge with weight 1. In the next iteration we have three options edges with weight 2, 3 and 4.So we will select the edge with weight 2 and mark the vertex. Now again we have three options, edges with weight 3,4 and 5. Bt we can't choose edge with weight 3 as it is creating a cycle. So we will select the edge with weight 4 and we end up with the minimum spanning tree of total cost 7 (1 + 2 + 4)
+
+### Time Complexity
+The time complexity of the Prim's Algorithm is O((V + E)log V) because each vertex is inserted in the priority queue only once and insertion in priority queue take logarithmic time.
+
+## 
