@@ -72,6 +72,3 @@ A **left-skewed distribution** has a long left tail. Left-skewed distribution ar
 A **right-skewed distribution** has a long right tail. Right-skewed distributions are also called postive-skew distributions. That's because there is a long tail in the postive direction on the number line. The mean is also to the right of the peak.
 
 ![](images/pearson-mode-skewness.jpg)
-
-[Practice Questions](assets/measures_of_central_tendency.xlxs)
-

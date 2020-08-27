@@ -1,4 +1,4 @@
-# Univariate abd Bivariate data
+# Univariate and Bivariate data
 Bivariate data is data that involves two different variables whose values can change. Bivariate data deals with relationships between these two variables. The purpose of bivariate data is to analyze and explain this relationship.
 
 Some data has only one variable. For example, if I were to record the ages of all students in a school and graph my data, then there would only be one variable, the age of the students. This type of data is known as univariate data and it does not deal with relationships, but rather it is used to describe something. In this example univariate data is used to express the ages of the students in a school.

@@ -95,4 +95,250 @@ int count_one (int n)
 	return count;
 }
 ```
-As explained in the previous algorithm, the relationship between the bits of x an x-1. So as in x-1, the rightmost 1 and bits right to it are flipped, then by performing x & (x-1), sorting it in x, will reduce x to a number containing number of ones
+As explained in the previous algorithm, the relationship between the bits of x an x-1. So as in x-1, the rightmost 1 and bits right to it are flipped, then by performing x & (x-1), sorting it in x, will reduce x to a number containing number of ones.
+
+
+# XOR operator
+The XOR logical operation, or exclusive or takes two boolean operand and return true if and only if the operand are different. Thus, it return false if the two operand have the same value.
+
+So, the XOR operator can be used, for example, when we have to check for two conditions that can't be true at the same time.
+
+Let's consider two condition A and B. Then the following table shows the possible values of A XOR B
+
+|A|B|A XOR B|
+|-|-|-------|
+|T|T|F|
+|T|F|T|
+|F|T|T|
+|F|F|F|
+
+**The A XOR B operation is equivalent to (A && !B) || (!A && B).** Parentheses have been included for clarity, but are optional as the AND operator takes precedence over the OR operator.
+
+# Mathematical Operation using Bitwise operators
+
+## Addition
+Sum of two bits can be obtained by performing XOR(^) of two bits. Carry bit can be obtained by performing AND (&) of two bits.
+
+Above is simple `Half Adder` logic that can be used to add 2 single bits. We can extends this logic for integers. If x and y don'y have set bits at same position(s), then bitwise XOR(^) of x and y gives the sum of x and y. To incorporate common set bits also, bitwise AND(&) is used. Bitwise AND of x and y gives all carry bits. We calculate (x&y) << 1 and add it to x^y to get the required result.
+
+```python
+#(Iterative)
+def add(x, y) -> int:
+	while y != 0:
+		carry = x & y
+		x = x^y
+		y = carry << 1
+
+	return x
+
+def add_recursive(x, y) :
+	if y == 0:
+		return 0
+	else:
+		return 	add_recursive(x^y, (x & y) << 1)
+
+```
+
+## Substraction
+Like addition , this idea us ti user `subtractor` logic.
+
+```python
+def subtract(x, y) -> int:
+	while y != 0:
+		borrow = not x & y
+		x = x ^ y
+		y = borrow << 1
+	return x
+```
+
+## Multiplication (Russian Peasant)
+The idea is to double the first number and halve the second number repeatedly till the second number doesn't become 1. In the process, whenever the second number become odd, we add the first number to result.
+
+```python
+def multiply(a,b):
+	res = 0
+	while b != 0:
+		if b & 1 :
+			res+=a
+
+		a = a << 1
+		b = b >> 1
+
+	return res
+```
+
+## Divison
+Q = N/D
+1. Align the most-significant ones on N and D. (for checking sign)
+2. Compute quoitent t = N - D
+3. if t >= 0 then set the least significant bit to Q to 1, and set N = t
+4. Left shift N by 1
+5. Left shift Q by 1
+6. Go to step 2
+
+```python
+	def divide(n, d) -> int:
+		sign = -1 if n * d <  0 else 1
+		q=1
+		rq = 0
+		while True:
+			t  = d << 1
+			if n >= t:
+				d = t
+				q+=1
+			else:
+				rq+=q
+				q = q
+				n-=d
+				if d << 1 > n:
+					if n >= d:
+						rq+=1
+					break		
+		return sign * rq
+```
+
+## Odd or Even using Bitwise Operator
+1. **Using Bitwise XOR operator** - The idea to check whether last bit of the number is set or not. If last bit is set then the number is odd otherwise even.
+	As we know bitwise XOR operation of the Number by 1 increment the value of the number by 1 if the number is even otherwise it decrements the valude of the number by 1 if the value is odd.
+	```python
+		def is_even(x):
+			return x^1 < x
+	```
+2. **Using Bitwise AND operator** - The idea is to check whether the last bit of the number is set or not. If last bit is set then the number is odd, otherwise even.
+	As we know bitwise AND operation of the Number by 1 will be 1, If it is odd because the last bit will be already set. Otherwise it will give 0 as output.
+	```python
+		def is_even(x):
+			return x & 1 != 1
+	```
+# Bit Manipulation Tactics
+1. We can quickly calculate the total number of combinations with numbers smaller than or equal to width a number whose sum and XOR are equal. Instead of using looping, we can directly find it by mathematical trick.
+	> Answer = pow(2, count of zero bits)
+
+2. If a number is a power of 2.
+	```python
+	def is_power_two(x: int) -> bool:
+		return x && ( x & (x-1))
+	```	
+3. We can find the most significant set bit in O(1) time for a fixed size integer. For example below code is for 32-bit integer
+	```python
+		def set_bit_number(n):
+			# Suppose n is 273(binary is 100010001). It does following 100010001 | 010001000 = 110011001 
+			n |= n >> 1
+			# This makes sure 4 bits. (From MSB and including MSB) are set. It does following 110011001 | 001100110 = 111111111 
+			n |= n >> 2
+			n |= n >> 4
+			n |= n >> 8
+			n |= n >> 16
+			# Increment n by I so that there is only one set bit which is just before orginal MSB. n now becomes 1000000000
+			n+=1
+			# Return original MSB after shifting n now becomes 100000000 
+			return n >> 1
+	```
+
+4. **Check if the i<sup>th</sup> bit is et in the binary form of the given number.**
+
+	To check if the i<sup>th</sup> bit is set or not(1 or not), we use AND operator. How?
+
+	Let's say we have a number N, and check whether it's i<sup>th</sup> is set or not, we can AND it  with the number 2<sup>i</sup>. The binary form of 2<sup>i</sup> contains only the i<sup>th</sup> bit as set (or 1) else every bit is 0 there. When we will AND it with N and if the i<sup>th</sup> bit of N is set, then it will return a non zero number (2<sup>i</sup> to be specific) else 0 will be returned.
+
+	Using left shift operator, we can write 2<sup>i</sup> << i. Therefore:
+	```python
+		def check(int n) -> bool:
+			if n & (1 << i) :
+				return True
+			else:
+				return False	
+	```
+
+	**Example**: Let's say N = 20 = (10100)<sub>2</sub>. Now let's check if it's 2nd bit is set or not(starting from 0). For that we have to AND it with 2<sup>2</sup> = 1 << 2 = {100}<sub>2</sub>. {10100} & {100} = {100} = 2<sup>2</sup> = 4 (non-zero element), which means its 2nd bit is set.
+
+5. **How to generate all the possible subsets of a set ?**
+
+	A big advantage of bit manipulation is that it can help to iterate over all the subsets of an N-element set. As we  all know there are 2<sup>N</sup> possible subsets of any given set with N elements. What if we represent each element in a subset with a bit. A bit can be either 0 or 1, thus we can use this to denote whether the corresponding element belong to this given subset or not. So each bit pattern will represent a subset.
+
+	Consider a set A of 3 elements:
+
+	A = {a, b, c}
+	
+	Now, we need 3 bits, one bit for each element. 1 represet that correponding element is present in the subset, whereas 0 represent the corresponding element is not in the subset. Let's write all the possible combination of these 3 bits.
+
+	0 = (000) = {}
+
+	1 = (001) = {c}
+
+	2 = (010) = {b}
+
+	3 = (011) = {b.c}
+
+	4 = (100) = {a}
+
+	5 = (101) = {a,c}
+
+	6 = (110) = {a,b}
+
+	7 = (111) = {a,b,c}
+
+	```python
+		def possible_subset(s:str) -> List[str]:
+			n = len(s)
+			res = []
+			for i in range(0, 1<< n):
+				subset = []
+				for  j in range(0, n):
+					if i & (1 << j):
+						print('I = ',i,' J = ', j, 'cond ', (i & (1 << j)), ' s[j] = ', s[j])
+						subset.append(s[j])
+
+				res.append(subset)
+
+			return res
+	```
+
+	6. **Find the largest power of 2 (most significant bit in binary form), which is less than or equal to the given number N.
+		
+		**Idea**: Change all the bits which are at the right side of the most significant digit to 1.
+		
+		**Property**: As we know that when all the bits of a number N are 1, then N must be equal to the 2<sup>i</sup>-1, wheere i the number of bits N. 
+
+		**Example**: 
+
+		Let say binary form of N is {1111}<sub>2</sub> which is equal to 15. 15 = 2<sup>4</sup>-1, where 4 is the number of bits in N.
+
+		This property can be used to fid the larged power of 2 less than or equal to N. How ?
+
+		If we somehow change all the bits which are at right side of the most significant bit of N to 1. then the number will become x + (x-1) = 2*x-1, where x is the required number.
+
+		```python
+			def largest_power(n): 
+				n = n | (n >> 1)
+				n = n | (n >> 2)
+				n = n | (n >> 4)
+				n = n | (n >> 8)
+
+				return (n+1) >> 1
+		```
+
+# Sieve of Eratosthenes
+In mathematics, the sieve of eratosthenes is an ancient algorithm for finding all prime numbers up to any given limit.
+
+It does so by iteratively marking as composite (i.e. not prime) the multiples of each prime, starting with the first prime number 2. The multiples of a given prime are generated as a sequence of numbers starting from that prime, with constant difference between them  that is equal to that prime. This is the sieve's ket distinction from using trial division to sequentially test each candidate number for divisibility by each prime.
+
+> algorithm Sieve of Eratosthenes
+> 
+> input an integer n > 1
+>
+> output all prime numbers from 2 and through n
+>
+> let A be an array of Boolean valuesm indexed by integers 2 to n.
+> 
+> initially all set to true
+>
+> for i = 2, 3,4,... not exceeding sqrt(n) do
+>
+> if A[i] is true
+>
+> for j = i ** 2, i ** 2+1,.... not exceeding n do
+>
+> A[j]=false
+>
+> return all i such that A[i] is true
