@@ -173,3 +173,21 @@ Bucket sort is a comparison sort algorithm that operates on elements by dividing
 
 ### Time Complexity
 If we assume that insertion in a bukcet takes O(1) time then steps 1 and 2 of the above algorithm clearly take O(n) time. The O(1) is easily possible if we used a linked list to represent a bucket.
+
+
+## Wave Sort
+
+
+## Stalin Sort
+Stalin sort(also 'dictor sort' and 'trump sort') is a nonsensical sorting algorithm in which each element that is not in the correct order is simply eliminated from the list.
+
+1. Gather up the comrades and show them the list.
+2. Ask the comrades to raise their hands if they believe the list is sorted.
+3. Select any comrades who did not raise his hand, and executes him as a traitor.
+4. Repeat steps 2 and 3 until everyone agrees that list is sorted.
+
+## Cycle Sort
+Cycle sort is a comparison sorting algorithm which forces array to be factored into the number of cycles where each of them can be rotated to produce a sorted array. It is theoretically optimal in the sense that it reduces the number of writes to the original array.
+
+
+# Topological Sorting

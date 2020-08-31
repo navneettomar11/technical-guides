@@ -10,4 +10,5 @@ There are two different answers you might have given
 
 Both answers are correct, and both have different meanings! It's important to undertand the difference betweem them, and use them correctly. We call the first one the **capacity** of the Array, and the second one **length** of the Array.
 
-## Array Rotation
+## Searching
+

@@ -5,9 +5,9 @@ Kotlin's type system is aimed at eliminating the danger of null references from 
 
 One of the most common pitfalls in many programming languages, including Java is that accessing a member of a null reference will result in a null reference exception. In Java this would be the equivalent of a `NullPointerException` or NPE for short.
 
-Kotlin's ttype system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE may be:
+Kotlin's type system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE may be:
 - An explicit call to throw `NullPointerException`
-- Usage of `!!` operator 
+- Usage of `!!` operator
 - Some data inconsistency with regars to initialization, such as when:
     - An uninitialized `this` available in a constructor is passed and use somewhere ("leaking this")
     - A superclass constructor calls an open number whose implementation in the derived class uses uninitialized state.
@@ -124,5 +124,3 @@ If you have a collection of elements of a nullable type and want to filter non-n
 val nullableList: List<Int?> = listOf(1,2, null, 4)
 val intList: List<Int> = nullableList.filterNotNull()
 ```
-
-

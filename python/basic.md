@@ -1,3 +1,11 @@
+# Benefits of Python Programming
+- Python is a dynamic-type language. It means that you don't need to mention the data type of variable during their declaration. It allows to set variables like var1=101 and var2="You are an engineer". without any error.
+- Python supports object oriented programming as you can define classes along with the composition and inheritance. It doesn't use access specifiers like public or private).
+- Functions in Python are like first-class objects. It suggest you can assign them to variables, return from other methods and pass as arguments.
+- Developing using python is quick but running it is often slower than compiled languaage. Luckily, Python enables to include the "C" language extensions so you can optimize your scripts.
+- Python has several usuage like web-based applications, test automation, data modeling, big data analaytics and much more. Alternatively, you can utilize it as a "glue layer" to work with other languages.
+
+
 # Python Data Types
 Variables can store data of different types, and different types can do different things.
 
@@ -122,6 +130,7 @@ If you do not know how many keyword arguments that will be passed into your func
 
 This way the function will receive a `dictionary` of arguments and can access the items accordingly.
 
+
 ## Lambda
 A lambda function is a small anonymous function. A lambda function can take any number of arguments, but can only have one expression.
 
@@ -140,5 +149,11 @@ Whenever the Python iterpreter reads a source file, it does two things:
 
 Let's see how this works and how it relates to your question about __name__ checks we always see in Python script.
 
+## Package
+A python package is simply an organized collection of python modules. A python module is simply python file.
 
+Creating a package with `__init__.py` is all ablut making it easier to develop large Python projects.
 
+The `__init__.py` files are required to make Python treat directories containing file as packages. This prevent directories with a common name, such as string, unitentionally hiding valid modules that occur later on the module search path. 
+
+  

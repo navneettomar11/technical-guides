@@ -51,6 +51,7 @@ As the name BFS suggest, you are required to traverse the graph breathwise as fo
 2. Move to the next layer.
 
 Consider the following diagram:
+
 ![](assets/fdec3c2.jpg)
 
 The distance between the nodes in layer 1 is comparitively lesser than the distance between the nodes in layer 2. Therefore in BFS you must traverse all the nodes in layer 1 before you move to the nodes in layer 2. 

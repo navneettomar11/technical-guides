@@ -75,9 +75,8 @@ Following are the steps we will be following to solve the activity selection pro
 **Step 6**: Print the `sol[]` array.
 
 ## Spanning Tree
-<div style="text-align: center">
+
 ![Spanning Tree](assets/spanning-tree.png)
-</div>
 
 The network shown in the above figure basically represents a graph **G = (V, E)** with a set of vertices **V = {a, b, c, d, e, f}** and a set of edges **E = {(a,b), (b,c), (c,d), (d,e), (e,f), (f,a), (b,f), (c,f)}**. The graph is:
 - Connected (there exists a path between very pair of vertices)
