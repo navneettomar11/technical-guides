@@ -225,7 +225,7 @@ public class Building {
 ```
 
 ## Inheritance versus composition: How to choose
-Inheritance and composition are two programming techniques developers use to establish relationship between classes and objects. WHereas inheritance derives one class from another, composition defines a class as the sum of its parts.
+Inheritance and composition are two programming techniques developers use to establish relationship between classes and objects. Whereas inheritance derives one class from another, composition defines a class as the sum of its parts.
 
 Classes and objects created through inheritance are tightly couples because changing the parent or superclass in an inheritance relationship risks breaking your code. Classes and objects created through composition are loosely coupled, meaning that you can more easily change the component parts without breaking your code.
 
