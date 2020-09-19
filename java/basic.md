@@ -100,7 +100,7 @@ Now let say we two subclasses of Animal class `Horse` and `Cat` that extends `An
 As you can see that although we had the common action for all subclass `sound()` but there were different ways to do the same. This is perfect example of polymorphism.
 
 ## Method Overloading
-In Java, two or more methods can have same name if they differ in parameters(different number of parameters, different typr of parameters, both). These methods are called overloaded methods and this feature is called method overloading.
+In Java, two or more methods can have same name if they differ in parameters(different number of parameters, different type of parameters, both). These methods are called overloaded methods and this feature is called method overloading.
 ```java
 public class MethodOverloadExample {
 
@@ -118,7 +118,8 @@ There are some rules we need to follow to overload a method. Some of them are ma
 Two methods will be treated as overloaded if both follow the mandatory rules below:
 * Both must have same method name.
 * Both must have different argument lists.
-And if both methods follow the aboive mandatory rules, then they may or may not:
+
+ And if both methods follow the above mandatory rules, then they may or may not:
 * Have different return types.
 * Have different access modifiers.
 * Throw different checked or unchecked exceptions.
@@ -170,7 +171,7 @@ Apart from the above rules, there are also some facts to keep in mind:
 * Constructors and private are not inherited, so they cannot be overridden.
 * Abstract methods must be overridden by the first concrete subclass.
 * final methods cannot be overridden.
-* A subclass can use super.overridden_emthod to call the superclass version of an overridden method.
+* A subclass can use super.overridden_method to call the superclass version of an overridden method.
 
 # Association
 Association is the weakest relationship between the three. It isn't a "has-a" relationship, none of the objects are parts or members of another.
@@ -229,3 +230,21 @@ Inheritance and composition are two programming techniques developers use to est
 
 Classes and objects created through inheritance are tightly couples because changing the parent or superclass in an inheritance relationship risks breaking your code. Classes and objects created through composition are loosely coupled, meaning that you can more easily change the component parts without breaking your code.
 
+# Java static keyword
+Java static is a keyword and it is also a non-access modifier. Basically, it is used to memory management so that we can make our memory efficient or save memory. Static means class level in java.
+
+We use `static keyword in java` so that we can save our memory and make memory efficient. In other words, it is used for memory management.
+
+No, we can't override static method but we can overload static method.
+
+# What tpye of memory areas are allocated by JVM?
+
+**Class Area** stores per class structure, for example, runtime constant pool, fields, method data, and all the code for methods.
+
+**Heap** is a runtime data area where memory is allocated to the objects.
+
+**Stack** stores frames. It contains local variables and partial results, and takes part in method invocation and return. Every thread has a private JVM stack, created at the same time as the thread. A new frame is created each time a method is invoked, A frame is destroyed when its method invocation completes.
+
+**Program Counter Register** contains an address of the Java virtual machine instruction currently being executed.
+
+**Native Method Stack** contains all the native methods that are used in the application.

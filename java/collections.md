@@ -119,7 +119,7 @@ Iterators are used in Collection framework in java to retrieve one by one. There
 ## Fail-fast vs Fail-safe Iterators
 Fail-fast iterators fail as soon as they realized that structure of Collection has been changed since iteration has begun.  Structural changes means adding, removing or updating any element from collection while one thread is iterating over that collection.
 
-Fai-safe iterators are just opposite to fail-fast. They never fail if you modify the underlying collection on which they are iterating because they work on clone of Collection instead of original collection and that's why they are called as fail-safe iterator.
+Fail-safe iterators are just opposite to fail-fast. They never fail if you modify the underlying collection on which they are iterating because they work on clone of Collection instead of original collection and that's why they are called as fail-safe iterator.
 
 Iterator of CopyOnWriteArrayList is an example of fail-safe iterator also iterator written by ConcurrentHashMap keySet is also fail-safe iterator and never throw ConcurrentModificationException.
 
