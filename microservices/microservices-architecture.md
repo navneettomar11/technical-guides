@@ -78,3 +78,29 @@ In order to ensure loose coupling, each service has it own database. Maintaining
 Another change is implementing queries that need to retrieve data owned by multiple services.
 - The `API Composition` and `Command Query Responsibility Segregation (CORS)` patterns.
 
+# Core Concepts in Microservices
+
+## Cohesion
+Cohesion refers to the degree of focus that a particular software component has. A multi-purpose mobile phone with camera, radio, torch, etc. for example has low cohesion compared to a dedicated DLSR that does one thing better.
+
+> Wikipedia -> Cohesion is software engineering is the degree to which the elements of a certain module belong together. In one sense, it is a measure of the strength of relationship between methods and data of a class and some unifying purpose or concept served by that class. In another sense, it is measure of the strength of relationship between the class's methods and data themselves.
+
+Let us suppose we have a monolithic applicaton for a a fictitious e-shop, that does order management, inventory managmeent, user mangement, marketing, delivery management etc. This monolithic software has very low cohesion compared to a microsevices based architecture where each microservice is responsible for a particular business functionality, for example - User management microservice, Inventory management microservice, Order Management microservice and so on.
+
+### Benefits of High Cohesion
+1. Reduced modular complexity, because each module does one thing at a time.
+2. Increased system maintainability, because logical changes in the domain affect fewer modules and because changes in one module require fewer changes in other modules.
+3. Increased modules reusability, because application developers will find the component they need more easily among the cohesive set of operations provided by the module.
+4. Easy understandability and testability.
+
+Microservice in general should have a high cohesion i.e each microservice should do one thing and do it well.
+
+## Coupling
+Coupling refers to the degree of dependency that exists between two software components.
+
+A very good day to day example of coupling is mobile handset that has battery sealed into the handset. Design in this case is tightly coupled beacuse battery or motherboard can not replaced from each other without affecting each other.
+
+In Object Oriented Design we always look for low coupling among various components so as to achieve flexibility and good maintainability. Change in one components shall not affect other components of the system.
+
+> High cohesion is almost always related to low coupling.
+

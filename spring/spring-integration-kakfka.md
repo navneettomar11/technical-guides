@@ -1,0 +1,2 @@
+# Introduction
+The Spring for Apache Kafka(spring-kafka) project applies core Spring concepts to the development of Kafka-based messages solutions. It provides a "template" as a high-level abstraction for sending messages. It also provides support for Message-driven POJOs with `@KafkaListener` annotations and a `listener cotaniner`. These libraries promote the use of dependency injection and declarative.

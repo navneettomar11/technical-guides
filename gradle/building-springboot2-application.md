@@ -1,0 +1,2 @@
+# Initializing the Gradle project
+First we need to initialize the Gradle project. For that we use Gradle's `init` task which create a template project with an empty buid file. The generated projectg includes the Gradle wrapper out of the box such that you can easily share the project with users that do not have Gradle locally installed. It also adds the default source directories, test dependencies and JCenter as default dependency repository.

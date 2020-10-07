@@ -1,0 +1,2 @@
+# Writing the Setup Script
+The setup script is the center of all activity in building, distributing and installing modules using the DistUtils. The main purpose of the setup script os to describe your module distribution to the DistUtils, so that the various commands that operate on your modules do the right thing. 
