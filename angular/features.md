@@ -27,7 +27,6 @@ Animations are provided to be in the module BrowserAnimationsModule from `@angul
 This has some nasty implications for readability and maintainability of the code - after all you have to work on multiple lines of code when immplementing some changes.
 In Angular 4, this use can be solved with a newly added else. May be unexpected for some, Angular uses a separately references template fragement, which in the else-case will be used in place of the element marked with *ngIf.
 - **Dynamic Components with NgComponentOutlet**: The new *ngComponentOutlet-Directive makes it possible to build dynamic components in a declarative way. Up until now, it has been quite a lot of work to build
-
 High cohesion is when you have a class that does a well defined job. Low cohesion is when a class does a lot of jobs that don't have much in common.
 Let's take this example:
 You have a class that adds two numbers, but the same class creates a window displaying the result. This a low cohesive class because the window  and adding opreation don't have much in common. The window is the visual part of the program and the adding function is the logical behind it.

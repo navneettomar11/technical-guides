@@ -1,3 +1,5 @@
+Reactive programming is an asynchronous programming paradigm concerned with data streams and propagation of change. RXJS (Reactive Extension for Javascript) is a library for reactive programming using observables that makes it easier to compose asynchronous or call-back based code.
+
 RxJS is a library for composing asynchronous and event-based programs by using observable sequences. It provides one core type, the Observable, satellite types(Observer, Schedulers, Subjects) and operators inspired by Array@extras(map, filter, reduce, every,etc) to allow handling asynchronous event as collections.
 
 > Think of RxJS as Lodash for events.

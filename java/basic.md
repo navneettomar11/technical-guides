@@ -34,8 +34,18 @@ An **interface describes** a set of methods that can be called on an object, but
 >
 > Since it’s almost impossible to add a new method on a published interface, it’s better to use abstract class, when evolution is concern. Abstract class in Java evolves better than interface. Similarly, if you have too many methods inside interface, you are creating pain for all it’s implementation, consider providing an abstract class for default implementation. This is the pattern followed in Java collection package, you can see AbstractList provides default implementation for List interface.
 
+There are two kinds of abstraction in java. They are as follows:
+
+### 1. Data Abstraction in Java
+This is the process of creating complex datatypes and revealing only the useful parts of the data type for programmers to use. This improves the implementation over time. For example, standard templates such as Linked Lists and Array Lists or HashMaps in Java reduce the complexity and allow the programmer to directly use the data structure instead of redefining them.
+
+### 2. Control Abstraction in Java
+In large scale software development, there is frequent reuse of code throughout the project. If all the people implement the same functionality, they should only have to write the particular function once and then execute it whenever needed. This process of creating a unit definition of a piece of work and reusing it whenever necessary is control abstraction. An example would be functions in Java.
+
 # Encapsulation
 Encapsulation simply means binding object state(fields) and behaviour(methods) together. If you are creating class you are doing encapsulation.  The whole idea behind encapsulation is to hide the implementation details from users. If a data member is private it means it can only be accessed within the same class. No outside class can access private data member of other class.
+
+Imagine you are traveling to your favorite getaway place. Let’s say the mountains or the beach. So you book your tickets and share photos of it throughout your social media accounts announcing your vacations. But whenever traveling comes to mind there is one specific thing we all do. Pack. We arrange all the clothes we think we might need and carefully place them inside a bag or a trolley. This concept of wrapping up of required stuff to prevent other people from using it is Encapsulation.
 
 However if we setup public getter and setter methods to update and read the private data fields then the outside class can access those private data fields via public methods. This way data can only be accessed by public methods thus making the private fields and their implementation hidden from outside classes. 
 
@@ -248,3 +258,5 @@ No, we can't override static method but we can overload static method.
 **Program Counter Register** contains an address of the Java virtual machine instruction currently being executed.
 
 **Native Method Stack** contains all the native methods that are used in the application.
+
+
