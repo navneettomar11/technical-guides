@@ -259,4 +259,28 @@ No, we can't override static method but we can overload static method.
 
 **Native Method Stack** contains all the native methods that are used in the application.
 
+# Dynamic Method dispatch?
+Method overriding is one of the ways in which Java supports Runtime polymorphism. Dyanmic method dispatch is the mechansim by which a call to an overridden method is resolved at run time, rather than compile time.
 
+Example -
+```java
+ public class A {
+     public void test() {
+         System.out.println("I am in Class A");
+     }
+ }
+
+ public class B extends A {
+
+     public void test() {
+         System.out.println("I am in Class B");
+     }
+ }
+
+ public class Test {
+     public static void main(String[] args) {
+         A a = new B();
+         a.test(); //output - I am in Class B;
+     }
+ }
+```

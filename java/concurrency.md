@@ -91,3 +91,139 @@ There are two ways to specify what code the thread should execute. The first is 
 There are no rules about which of the two methods that is the best. Both methods works. Personally thought, I prefer implementing Runnable and handle an instance of the implementation to a Thread instance. When have the Runnable executed by the thread pool it is easy to queue the Runnable instance until a thread from the pool is idle. This is a litter harder to do with the Thread subclasses.
 
 Sometimes you may have to implement Runnable as well as subclass Thread. For instance, if creating a subclass of Thread that can execute more than one Runnable. This is typically the case when implementing a thread pool.
+
+
+# Volatile Field
+A volatile field has special properties to the Java Memory model. The reads and write of a volatile variables are synchronization actions, meaning that they have a totla ordering(all threads will observe a consistent order of these actions). A read of volatile variable is guranteed to observe the last write to this variable, according to this order.
+
+If you have field that is accessed from multiple thread, with at least one thread writing to it, then you should consider making it volatile or else there is a little guarantee to what a certain thread would read from this field.
+
+# ThreadLocal
+Java ThreadLocal is used to create thread local variables. We know that all threads of an Object share it's variable, so the variable is not thread safe. We can use synchronization for thread safety but if we want to avoid synchronization, we can use `ThreadLocal` variables.
+
+Every thread has it's own `ThreadLocal` variable and they can use it's get() and set() method to get the default value or change it's value local to Thread.
+
+ThreadLocal instances are typically private static fields in classes that wish to associate state with a thread.
+
+```java
+
+package com.journaldev.threads;
+
+import java.text.SimpleDateFormat;
+import java.util.Random;
+
+public class ThreadLocalExample implements Runnable{
+
+    // SimpleDateFormat is not thread-safe, so give one to each thread
+    private static final ThreadLocal<SimpleDateFormat> formatter = new ThreadLocal<SimpleDateFormat>(){
+        @Override
+        protected SimpleDateFormat initialValue()
+        {
+            return new SimpleDateFormat("yyyyMMdd HHmm");
+        }
+    };
+    
+    public static void main(String[] args) throws InterruptedException {
+        ThreadLocalExample obj = new ThreadLocalExample();
+        for(int i=0 ; i<10; i++){
+            Thread t = new Thread(obj, ""+i);
+            Thread.sleep(new Random().nextInt(1000));
+            t.start();
+        }
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Thread Name= "+Thread.currentThread().getName()+" default Formatter = "+formatter.get().toPattern());
+        try {
+            Thread.sleep(new Random().nextInt(1000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //formatter pattern is changed here by thread, but it won't reflect to other threads
+        formatter.set(new SimpleDateFormat());
+        
+        System.out.println("Thread Name= "+Thread.currentThread().getName()+" formatter = "+formatter.get().toPattern());
+    }
+
+}
+```
+# Atomic Operation
+Atomic operations are performed in a single unit of task without interference from other operations. Atomic operations are necessity n multithread environment to avoid data inconsistency.
+
+i++ is not an atomic operation. So by the time one thread read its value and increment it by one, another thread has read the older value leading to the wrong result.
+
+To solve this issue, we have to make sure the increment operation on count is atomic, we can do that using Synchronization but Java 5 java.util.concurrent.atomic provided wrapper classes for int and long that can be used to achieve this atomically without the usage of Synchronization. 
+
+# Lock Interface
+Lock interface provides more extensive locking operations than can be obtained using synchronization method and statements. They allow more flexible structuring may have quite different properties and may support multiple associated condition objects.
+The advantage of a lock are
+- It's possible to make them fair.
+- It's possible to make thread responsive to interruption while waiting on a Lock object.
+- Its possible to try to accquire the lock but return immediately or after a timeout if the lock can't be acquired.
+- Its possible to acquire and release locks in different scopes and in different orders.
+
+
+# Executor
+Executor and ExecutorService are two related interfaces of _java.util.concurrent_ framework. Executor is a very simple interface with a single execute method accepting Runnable instance for execution. In most cases, this is the interface that your task-executing code should depend on.
+
+# ExecutorServices
+
+ExecutorService extends the Executor interface with multiple methods for handling and checking the lifecycle of a concurrent task  execution service(termination of tasks in case of shutdown) and methods for more complex asynchronous task handling including Futures.
+
+The ExecutorService has interface has three standard implementations:
+- **ThreadPoolExecutor** for executing tasks using a pool of threads. Once a thread is finished executing the task it goes back into the pool. If all threads in the pool are busy, then task has to wait for its turn.
+- **ScheduledThreadPoolExecutor** allows to schedule task execution instead of running it immediately when thread is available. It can also schedule tasks with fixed rate or fixed delay.
+- **ForkJoinPool** is a special ExecutorService for dealing with recursive algorithms task. If you use a regular ThreadPollExecutor for a recursive algorithm,  you will quickly find all your threads are busy waiting for the lower levels of recursion to finish. The ForkJoinPool implements the so-called work-stealing algorithm that allows it to use available thread more efficiently.
+
+# Future interface
+The submit() and invokeAll() methods return an object or a collection of objects of type Future, which allows us to get the result of a tasks execution or check the task's status (it is running or executed).
+
+The Future interface provides a special blocking method get() which returns an actual result of the Callback task's execution or null in the case of Runnable task. Calling the get() method while the task is still running will cause execution to block until the task is properly executed and the result is available.
+
+```java
+Future<String> future = executorService.submit(callableTask);
+String result = null;
+try{
+    result = future.get();
+}catch(InterruptedException | ExecutionException e) {
+    e.printStackTrace();
+}
+```
+
+With very long blocking caused by the get() method, an application's performance can degrade. If the resulting data is not crucial, it is possible to avoid such a problem by using timeouts.
+
+```java
+String result = future.get(200, TimeUnit.MILLISECONDS);
+```
+
+If the execution period is longer than specified (in this case 200 milliseconds), a TimeoutException will be thrown.
+
+The isDone() method can be used to check if the assigned task is already processed or not.
+
+The Future interface also provides for the cancellation of task execution with the cancel() method and to check the cancellation with isCancelled() method.
+
+```java
+boolean canceled = future.cancel(true);
+boolean isCancelled = future.isCancelled();
+```
+
+# Interview Questions
+## Describe the Different State of a Thread and When Do the State Transitions Occur.
+The state of a Thread can be checked using the Thread.getState() method. Different state of a Thread are described in the Thread.State enum. They are.
+- **NEW** - a new Thread instance that was not yet start via Thread.start().
+- **RUNNABLE** - a running thread. It is called runnable because at any given time it could be either running or waiting for the next quantum of time from the thread scheduler. A NEW thread enter the RUNNABLE state when you call _Thread.start()_ on it.
+- **BLOCKED** - a running thread become blocked if it needs to enter a synchronized section but cannot do that due to another thread holding the monitor of this section.
+- **WAITING** - a thread enter this state if it waits for another thread to perform a particular action. For instance a thread enters this state upon calling the Object.wait() method on a monitor it holds, or Thread.join() method on another method.
+- **TIME_WAITING** - sames as the above, but a thread enters this state after calling timed versions of Thread.sleep, Object.wait(), Thread.join and some other methods.
+- **TERMINATED** - a thread has completed the execution of its Runnable.run method and terminated.
+
+## What is difference Between the Runnable and Callable interfaces? How are they used?
+The Runnable interface has a single `run` method, it represent a unit of computation that has to be run in separate thread. The Runnable interface does not allow this method to return value or to throw unchecked expception.
+
+The Callable interface has a single `call` method and represent a task have a value. That's why the call method return a value. It can also throw exception. Callable is generally used in ExecutorService instances to start an asynchroonous task and them call the returned Future instance to get its value.
+
+
+
+## What are Executor and ExecutorServices ? Waht are the difference between these interfaces ?
+
