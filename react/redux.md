@@ -5,7 +5,7 @@ Redux is a state management framework that can be used with a number of differen
 
 In Redux, there is a single state object that's responsible for the entire state of your application. This means if you had a  React app with ten components, and each component had its own local `state` the entire state of your app would be defined by a single state object housed in the Redux `store`. This is the first important principle to understand when learning Redux: the Redux store is the single source of truth when it comes to application state.
 
-This is also means that any time any piece of your app wants to update state, it meust to do so through the Redux store. The unidirectional data flow makes it easiser to track state management in your app.
+This is also means that any time any piece of your app wants to update state, it must to do so through the Redux store. The unidirectional data flow makes it easiser to track state management in your app.
 
 The Redux store object provides several methods that allow you to interact with it. For example, you can retrieve the current `state` held in the Redux store object with the `getState()` method.
 

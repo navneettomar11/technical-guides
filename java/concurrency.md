@@ -1,5 +1,4 @@
-
-## Process vs Thread
+# Process vs Thread
 A program in execution is often referred as process. A thread is subset(part) of the process.
 
 A process consists of multiple threads. A thread is smallest part of the process that can execute concurrently with other parts (threads) of the process.
@@ -39,6 +38,9 @@ Shared state means that the different threads in the system will share some stat
 Separate state means that different thread in the system do not share any state among them. In case the different threads need to communicate they do so either by exchanging immutable objects among them, or by sending copies of objects (or data) among them. Thus, when no two thread write to the same object(data/state) you can avoid most of the common concurrency problems.
 
 Using a separate state concurrency design can often make some parts of the code easier to implement and easier to reason about, since you know that only one thread will ever write to a given object. You don't have to worry about since you know that only one thread will ever write to a given object. You don't have to worry about concurrent access to that object. However, you might have to think a bit harder about the application design in the big picture, to use separate state concurrency. It's worth it though I feel. Personally I prefer separate state concurrency design.
+
+# Thread Safety
+
 
 # Parallel Workers
 The first concurrency model is what I call the parallel worker model. Incoming jobs are assigned to different workers. 
@@ -163,13 +165,36 @@ The advantage of a lock are
 - Its possible to try to accquire the lock but return immediately or after a timeout if the lock can't be acquired.
 - Its possible to acquire and release locks in different scopes and in different orders.
 
+# What is the Executor Framework?
+The Executor Framework contains a bunch of components that are used to efficiently manage worker threads. The Executor API de-couples the execution task from the actual task to be executed via Executors. The design is one of the implementation of the `Producer Consumer` pattern.
 
 # Executor
 Executor and ExecutorService are two related interfaces of _java.util.concurrent_ framework. Executor is a very simple interface with a single execute method accepting Runnable instance for execution. In most cases, this is the interface that your task-executing code should depend on.
 
 # ExecutorServices
-
 ExecutorService extends the Executor interface with multiple methods for handling and checking the lifecycle of a concurrent task  execution service(termination of tasks in case of shutdown) and methods for more complex asynchronous task handling including Futures.
+
+The Java ExecutorService interface `java.util.concurrent.ExecutorService` represents an asynchronous execution mechanism which is capable of executing tasks concurrently in the background. 
+
+![A thread delegating a task to an ExecutorService for asynchronous execution](http://tutorials.jenkov.com/images/java-concurrency-utils/executor-service.png)
+
+Once the thread has delegated the task to the ExecutorService, the thread continues its own execution independent of the execution of that task. The ExecutorService then executes the task concurrently independently of the thread that submitted the task.
+
+```java
+ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+executorService.execute(new Runnable() {
+
+    public void run() {
+        System.out.println("Asynchronous task");
+    }
+});
+
+executorService.shutdown();
+```
+First an ExecutorService is created using the Executors newFixedThreadPool() factory method. This creates a thread pool with 10 threads executing tasks.
+
+Second, an anonymous implementation of the Runnable interface is passed to the execute() method. This causes the Runnable to be executed by one of the threads in the ExecutorService.
 
 The ExecutorService has interface has three standard implementations:
 - **ThreadPoolExecutor** for executing tasks using a pool of threads. Once a thread is finished executing the task it goes back into the pool. If all threads in the pool are busy, then task has to wait for its turn.
@@ -208,6 +233,69 @@ boolean canceled = future.cancel(true);
 boolean isCancelled = future.isCancelled();
 ```
 
+# CountDownLatch
+A java.util.concurrent.CountDownLatch is a concurreny construct that allows one or more threads to wait for a given set of operations to complete.
+
+A CountdownLatch is intializaed with a given count. This count is decremented by calls to the countDown() method. Thread waiting for this count to reach zero can call one of the await() methods. Callings await() blocks the thread until the count reaches zero.
+
+Below is a simple example. Ater the Decrementer has called countDown() 3 times on the CountDownLatch the waiting Waiter is released from the await() call.
+
+```java
+CountDownLatch latch = new CountDownLatch(3);
+
+Waiter      waiter      = new Waiter(latch);
+Decrementer decrementer = new Decrementer(latch);
+
+new Thread(waiter)     .start();
+new Thread(decrementer).start();
+
+Thread.sleep(4000);
+
+public class Waiter implements Runnable{
+
+    CountDownLatch latch = null;
+
+    public Waiter(CountDownLatch latch) {
+        this.latch = latch;
+    }
+
+    public void run() {
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Waiter Released");
+    }
+}
+
+public class Decrementer implements Runnable {
+
+    CountDownLatch latch = null;
+
+    public Decrementer(CountDownLatch latch) {
+        this.latch = latch;
+    }
+
+    public void run() {
+
+        try {
+            Thread.sleep(1000);
+            this.latch.countDown();
+
+            Thread.sleep(1000);
+            this.latch.countDown();
+
+            Thread.sleep(1000);
+            this.latch.countDown();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
 # Interview Questions
 ## Describe the Different State of a Thread and When Do the State Transitions Occur.
 The state of a Thread can be checked using the Thread.getState() method. Different state of a Thread are described in the Thread.State enum. They are.
@@ -221,9 +309,4 @@ The state of a Thread can be checked using the Thread.getState() method. Differe
 ## What is difference Between the Runnable and Callable interfaces? How are they used?
 The Runnable interface has a single `run` method, it represent a unit of computation that has to be run in separate thread. The Runnable interface does not allow this method to return value or to throw unchecked expception.
 
-The Callable interface has a single `call` method and represent a task have a value. That's why the call method return a value. It can also throw exception. Callable is generally used in ExecutorService instances to start an asynchroonous task and them call the returned Future instance to get its value.
-
-
-
-## What are Executor and ExecutorServices ? Waht are the difference between these interfaces ?
-
+The Callable interface has a single `call` method and represent a task have a value. That's why the call method return a value. It can also throw exception. Callable is generally used in ExecutorService instances to start an asynchronous task and them call the returned Future instance to get its value.

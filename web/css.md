@@ -25,8 +25,8 @@ If you set an element's margin to a negative value, the element will grow larger
 # CSS inheritance
 Every HTML page has a `body` element. We can prove that the body element exists here by giving it a `background-color` of back.
 
-precedence -
- !Important Attribute --> Inline Style --> ID --> Class
+>precedence -
+> !Important Attribute --> Inline Style --> ID --> Class
 
 # CSS Variable
 CSS variables are powerful way to change many CSS style properties at once by changing only one value.
@@ -459,3 +459,46 @@ The repeat function comes with an option called `auto-fill`. This allows you to 
 When the container changes size, this setup keeps inserting 60px columns and stretching them until it can insert another one. Note: If your container can't fit all your items on one row, it will move them down to a new one.
 
 `auto-fit` works almost identically to `auto-fill`. The only difference is that when the container's size exceeds the size of all the items combined, auto-fill keeps inserting empty rows or columns and pushes your items to the side, while auto-fit collapses those empty rows or columns and stretches your items to fit the size of the container.
+
+# Box Sizing
+The `box-sizing` CSS property sets how the total width and height of an element is calculated.
+
+```css
+box-sizing: content-box;
+width: 100%;
+
+box-sizing: content-box;
+width: 100%;
+border: solid #5B6DCD 10px;
+padding: 5px;
+
+box-sizing: border-box;
+width: 100%;
+border: solid #5B6DCD 10px;
+padding: 5px;
+```
+
+By default in the CSS box model, the `width` and `height` you assign to an element is applied only to the element's content box. If the element has any border or padding this is then added to the `width` and `height` to arrive at the size of the box that's rendered on the screen. This means that when you set `width` and `height`, you have to adjust the value you give to allow for any border or padding that may be added. For example, if you have four boxed with `width: 25%`, if any has left or right padding  or left of right border, they will not by default fit on one line within the constraints of the parent container.
+
+The `box-sizing` property can be used to adjust this behavior.
+- `content-box` give you the default CSS box-sizing behavior. If you set an element's width to 100 pixels, then the elements content box will be 100 pixels wide, and the width of any border or padding will be added to the final rendered width, making the element wider than 100px.
+- `border-box` tells the browser to account for any border and padding in the valuses you specifies for an element's width and height. If you set an element's width to 100 pixels, that 100 pixels will include any border or padding you addeded and the contenct box will shrink to absorb that extra width . This typically it much easier to size elements.
+
+# font-smooth
+The font-smooth CSS property control the application of anti-aliasing when fonts are rendered.
+
+```css
+/* Keyword values */
+font-smooth: auto;
+font-smooth: never;
+font-smooth: always;
+
+/* <length> value */
+font-smooth: 2em;
+```
+
+>Anti-Aliasing -  a procedure used in digital graphics processing for smoothing lines and removing visual distortions.
+There are some new CSS3 techniques for font rendering and text effects though the consistency, performance, and reliability of these techniques vary so largely to the point where you generally shouldn't rely on them too much.
+
+References:
+1. [CSS Selectors](https://dzone.com/refcardz/corecss2?chapter=1)
