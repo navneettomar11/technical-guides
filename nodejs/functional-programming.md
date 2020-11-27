@@ -4,7 +4,7 @@ Functional programming is a style of programming where solutions are simple, iso
 > INPUT -> PROCESS -> OUTPUT
 
 Functional programming is about:
-1. **Isolated functions** - there is no dependence on the state of the program, which includes global variables that are subject to change.
+1. **Isolated functions** - there is no dependencies on the state of the program, which includes global variables that are subject to change.
 
 2. **Pure functions** - the same in input always gives the same output.
 
@@ -70,3 +70,44 @@ function impartial(x, y, z) {
 var partialFn = impartial.bind(this, 1, 2);
 partialFn(10); // Returns 13
 ```
+
+# Pure functions
+A pure function doesn't depend on and doesn't modify the states of variables out of its scope.
+
+Concretely, that means a pure function always returns the same result given same parameters. Its execution doesn't dependt of the system.
+
+For example
+```javascript
+var values = {a: 1};
+
+function impureFunction(items) {
+  var b = 1;
+  items.a = items.a * b + 2;
+
+  return items.a;
+}
+
+var c = impureFunction(values);
+//Now `values.a` is 3, the impure function modifies it.
+```
+
+Here we modify the attributes of the given object. Hence we modify the object which lies outside of the scope of our function: the function is impure.
+
+```javascript
+function pureFunction(a) {
+  var b = 1;
+  a = a * b + 2
+  return a
+}
+var c = pureFunction(values.a)
+// `values.a` has not been modified, it's still 1.
+```
+
+## Advantages of pure functions
+The main advantage of a pure function is that it doesn't have any side effect. It doesn't modify the state of the system outside of their scope. Then, they just simply and clarify the code: when you call a pure function, you just need to focus on the return values as you know you didn't broke anything elsewhere doing so.
+
+A pure function is also robust. Its order of execution doesn't have any impact on the system. Operations with pure function could be parallelized.
+
+Also, it very easy to unit test a pure function, since there is not context to consider. Just focus on inputs / outputs.
+
+Finally, maximizing the use of pure functions make your code simpler, more flexible.
