@@ -12,6 +12,9 @@ You need a way to create individual furniture objects so that they match other o
 
 Also, you don't want to change existing code when adding new products or families of products to the program. Furniture vendors update their catalogs very often, and  you wouldn't want to change the code each time it happens.
 
+If an application is to be portable, it need to encapsulate platform dependencies. These `platforms` might include: window system, operating system, database etc. Too often, this encapsulation is not engineered in adavance, and lots of `#ifdef` case statements with options for currently supported platforms begin to procreate like rabbits throughout the code.
+
+
 ## Solution
 The first thing the Abstract Factory pattern suggest is to explicitly declare interfaces for each distinct Product of the product family (e.g. chair, sofa or coffeetable). Then you can make all variants of product follow those interfaces. For example, all chair variabnts can implement the `Chair` interface; all coffee table variant can implement the `CoffeeTable` interface and so on.
 
