@@ -128,3 +128,5 @@ Since String is most widely used data structure, improving the performance of St
 > Why Char array is preferred over String for storing password?
 > 
 > String is immutable in java and stored in String pool. Once it's created it stay in the pool until unless garbage collected, so even though we are done with password it's available in memory for longer duration and there is no way to avoid it. It's a security risk because anyone having access to memory dump can find  the password as clear text.
+
+

@@ -1,6 +1,5 @@
 # What is Loose Coupling?
-Loose coupling is an approach to interconnecting the components in a system or network so that those components, also called 
-elements, depend on each other to the least extend praticable.
+Loose coupling is an approach to interconnecting the components in a system or network so that those components, also called elements, depend on each other to the least extend praticable.
 
 Loose coupling enables isolation. Components to be developed independently of one another, giving you much more freedom over when and what you deploy. Cross-functional delivery teams are able to get their work done without having to manage any dependencies on other teams.
 
