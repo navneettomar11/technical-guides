@@ -94,3 +94,50 @@ myPromise.catch(error => {
     //do something with the error.
 })
 ```
+
+## Destructuring assignment
+The destructuring assignment syntax is a Javascript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+
+```javascript
+let a, b, rest;
+[a, b] = [10, 20];
+
+console.log(a); //output: 10
+console.log(b); //output: 20
+
+//Default values
+const [a=5, b=7] = [1] ;
+console.log(a); //output: 1
+console.log(b); //output: 7
+
+//swaping variables
+[a, b] = [b, a]
+
+```
+
+## Execution Context
+Consider the following code:
+
+```javascript
+let x = 10;
+function timesTen(a) {
+    return a * 10;
+}
+
+let y = timesTen(x);
+
+console.log(y); //100
+```
+In this code
+- First, assign `10` to `x` variable.
+- Second, declare a function `timesTen()` that multiples its argument with `10`.
+- Third, call the `timesTen()` function by passing in `x` as a parameter and store the return value in the variable `y`
+- Finally, the output the variable `y` to the Console.
+
+When a javascript engine executes a script, it creates execution a Global Execution Context. During this creation phase, it performs the following tasks:
+- Create a global object i.e., `window` in the web browser or `global` in Node.js.
+- Create a `this` object binding which points to the global object above.
+- Setup a memory heap for storing variables and function references.
+- Store the function declarations in the memory heap and variables within the global execution context with the initial values as `undefined`.
+
+https://www.javascripttutorial.net/javascript-execution-context/
