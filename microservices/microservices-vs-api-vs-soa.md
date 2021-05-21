@@ -32,7 +32,7 @@ SOA delivers four different type of services:
 Traditionally, SOA involves an enterprise service bus (ESB) as a means of coordinating and controlling.
 
 # What is a microservices ?
-Microservice architecture is generally considered an evolution of SOA as its services are more fine grained, anf function independently of each other. Therefore, if one of the services fail within an application, the app will continue to function since each service has a distinct purpose. The services in microservices communiate via application programming interfaces (APIs) and are organied around a particular business domains. Together, these services combine to make up complex applications.
+Microservice architecture is generally considered an evolution of SOA as its services are more fine grained, and function independently of each other. Therefore, if one of the services fail within an application, the app will continue to function since each service has a distinct purpose. The services in microservices communiate via application programming interfaces (APIs) and are organied around a particular business domains. Together, these services combine to make up complex applications.
 
 Since each service is independent, a microservice architecture can scale better than other approaches used for application building and deployment. This characteristics also give microservice applications more fault tolerance thant other application development methods. Microservices are frequently built and deployed in the cloud; in many instances they operates in container.
 
@@ -41,7 +41,8 @@ Many of the cheif characteristics of SOA and microservices are similar. Both inv
 
 Nevertheless, there are many differences between SOA and microservices that determine the use cases each is suitable for:
 
-||Microservices|SOA|
+| |Microservices|SOA|
+|-|-------------|---|
 |**Architecture**|Designed to host services which can function independently| Designed to share resources across services|
 |**Component Sharing**| Typically does not involve component sharing| Frequently involves component sharing|
 |**Granularity**| Fine-grained services| Large, more modular services|
